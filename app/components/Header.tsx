@@ -6,7 +6,7 @@ function Header() {
     <div>
         <header className="shadow-[0_15px_40px_-20px_rgba(40,44,63,0.15)]">
             <div className="px-[20px]">
-                <div className=" mx-auto w-[78%]">
+                <div className="mx-auto max-w-[1200px]">
                     <div className="flex justify-between">
                         <div className="flex gap-[45px] items-center">
                             <div className="py-[13px]" title="Swiggy">
@@ -135,10 +135,13 @@ function Header() {
                                 </li>
                                 <li className="flex gap-[50px] items-center ">
                                     <Link href={"/"} className="flex items-center gap-[10px]">
-                                        <span>
-                                        <svg  viewBox="-1 0 37 32" height="20" width="20" fill="none" stroke="#3d4152" strokeWidth="2" >
-                                            <path  d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"/>
-                                        </svg>
+                                        <span className="relative">
+                                            <svg  viewBox="-1 0 37 32" height="20" width="20" fill="none" stroke="#3d4152" strokeWidth="2" >
+                                                <path  d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"/>
+                                            </svg>
+                                            <span className="absolute text-[14px] font-[600] font-[helvica-med] text-[#3d4152] top-[1%] right-[30%]">
+                                                0
+                                            </span>
                                         </span>
                                         <span  className="font-[helvica-med] text-[16px] text-[#3d4152]">
                                             Cart

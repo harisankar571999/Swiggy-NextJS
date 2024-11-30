@@ -9,8 +9,21 @@
 @font-face{
   font-family: 'helvica-med';
   src: url("../app/fonts/helvetica-neue-5/HelveticaNeueMedium.otf");
+  line-height: 19.2px;
 }
 @font-face{
   font-family: 'helvica-reg';
   src: url("../app/fonts/helvetica-neue-5/HelveticaNeueLight.otf");
+}
+@font-face{
+  font-family: 'gilroy-reg';
+  src:url("../app/fonts/gilroy/Gilroy-Medium.ttf")
+}
+@font-face{
+  font-family: 'gilroy-med';
+  src:url("../app/fonts/gilroy/Gilroy-Regular.ttf")
+}
+@font-face{
+  font-family: 'gilroy-xbold';
+  src:url("../app/fonts/gilroy/Gilroy-ExtraBold.ttf")
 }
