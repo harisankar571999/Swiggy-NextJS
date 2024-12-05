@@ -6,13 +6,13 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link"
-import NextArrow from "../NextArrow"
+import NextArrow from "./NextArrow"
 import PrevArrow from "./PrevArrow"
 
 export default function Carousal(){
     const dispatch = useDispatch()
     const {data,loading,error}=useSelector((state)=>state.food);
-    
+   
 useEffect(()=>{
     dispatch(fetchFoodData())
 },[dispatch])
@@ -22,6 +22,7 @@ const settings = {
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 3,
+    swipeToSlide: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow  />,
     responsive: [
@@ -63,16 +64,16 @@ const settings = {
     ],
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error}</h1>;
 return (
     <div className="relative">
         <Slider {...settings}>
           {
           data.map((item) => {
             return   (
-            <div className="flex gap-[24px]"> 
-              <Link href={'/'} key={item.id}>
+            <div className="flex gap-[24px]" key={item.id}> 
+              <Link href={'/'} >
                 <span className="h-[180px] w-[144px] block object-cover">
                   <img src={item.img} alt={item.alt} className="h-[180px] w-[100%] object-cover" />
                 </span>
@@ -85,3 +86,5 @@ return (
     </div>
     )
 }
+
+

@@ -4,7 +4,11 @@
 
 @font-face{
   font-family: 'proxima-med';
-  src: url("../app/fonts/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-medium.otf");
+  src: url("../app/fonts/gilroy/Gilroy-ExtraBold.ttf");
+}
+@font-face{
+  font-family: 'proximacond';
+  src: url("../app/fonts/Proxima Nova Full Download/Proxima Nova Extra Condensed Extrabold.otf");
 }
 @font-face{
   font-family: 'helvica-med';
@@ -26,4 +30,17 @@
 @font-face{
   font-family: 'gilroy-xbold';
   src:url("../app/fonts/gilroy/Gilroy-ExtraBold.ttf")
+}
+.gradient{
+  height: 81px;
+  background-image: linear-gradient(to bottom, rgba(27,30,36,0), rgba(27,30,36)84.21%)
+}
+.slick-slide>div{
+  margin: 0 32px;
+}
+.slick-slide>div:nth-child(1){
+  margin-left: 0;
+}
+.slick-list>div{
+  margin-right: -32px;
 }

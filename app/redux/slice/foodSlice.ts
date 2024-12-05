@@ -2,10 +2,12 @@ import { createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 import { error } from "console";
 
 export const fetchFoodData=createAsyncThunk("foodList",async()=>{
-   const res=await fetch("http://localhost:3000/api/foodslider")
+    const baseUrl = window.location.origin
+   const res=await fetch(`${baseUrl}/api/foodslider`)
    const data=await res.json()
    return data
 })
+
 const foodSlice=createSlice({
     name:"foodList",
     initialState:{
