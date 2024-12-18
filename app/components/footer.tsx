@@ -22,7 +22,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="w-[65%] mx-auto flex justify-between mt-[64px] pb-[2rem]">
-                    <div className="ml-15px">
+                    <div className="ml-15px flex flex-col items-center gap-[13px]">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="160" height="49" fill="none"><g filter="url(#filter0_b_674_19294)"><path fill="#FE5005" d="M69.097 35.543c-2.126 0-3.916-.456-5.376-1.368-1.459-.932-2.5-2.228-3.13-3.888l4.191-2.43c.85 
                             1.964 2.338 2.948 4.464 2.948 1.925 0 2.885-.576 2.885-1.733 0-.648-.312-1.133-.94-1.459-.649-.384-1.8-.802-3.462-1.243-1.699-.466-3.139-1.133-4.31-2.002-1.296-1.051-1.944-2.539-1.944-4.464 
@@ -52,7 +52,7 @@ export default function Footer() {
                             0-5.851 4.665-11.117 11.107-11.117 5.736 0 10.08 4.171 10.963 9.216.005.043.038.235.043.274.23 2.477-6.23 2.193-8.947 
                             2.208a.286.286 0 0 1-.288-.288v.005Z" clipRule="evenodd"></path></g><defs></defs></svg>
                         </div>
-                        <h1>
+                        <h1 className="font-[gilroy-reg] font-[400] text-[16px] text-[rgba(2,6,12,0.6)]">
                           © 2024 Swiggy Limited
                         </h1>
                     </div>
@@ -98,7 +98,20 @@ export default function Footer() {
                                 <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]">Delhi</Link></li>
                                 <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]">Mumbai</Link></li>
                                 <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]">Pune</Link></li>
-                                <li><button className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)] p-[4px_8px] border-[1px] border-[rgba(2,6,12,0.15)] rounded-[8px]"><div className="flex gap-[32px] items-center"><span>676 cities</span><span><svg aria-hidden="true" height="12" width="12"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.309 4.277a.9.9 0 0 0-.096 1.27l3.362 3.91c.01.01.019.02.028.032.151.176.32.373.486.519.195.17.501.377.927.377.426 0 .732-.206.927-.377.165-.146.335-.343.486-.52l.028-.031 3.33-3.873a.9.9 0 1 0-1.365-1.173l-3.33 3.872-.076.088-.076-.088-3.362-3.91a.9.9 0 0 0-1.27-.096Z" fill="rgb(2, 6, 12)" fill-opacity=".6"/></svg></span></div></button></li>
+                                <li>
+                                    <button className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)] p-[4px_8px] border-[1px] border-[rgba(2,6,12,0.15)] rounded-[8px]">
+                                        <div className="flex gap-[32px] items-center">
+                                            <span>676 cities</span>
+                                            <span>
+                                                <svg aria-hidden="true" height="12" width="12">
+                                                    <path fillRule="evenodd" clipRule="evenodd" d="M1.309 4.277a.9.9 0 0 0-.096 1.27l3.362 3.91c.01.01.019.02.028.032.151.176.32.373.486.519.195.17.501.377.927.377.426 
+                                                    0 .732-.206.927-.377.165-.146.335-.343.486-.52l.028-.031 3.33-3.873a.9.9 0 1 0-1.365-1.173l-3.33 3.872-.076.088-.076-.088-3.362-3.91a.9.9 0 0 0-1.27-.096Z" 
+                                                    fill="rgb(2, 6, 12)" fillOpacity=".6"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                         <div className="flex flex-col gap-[85px]">

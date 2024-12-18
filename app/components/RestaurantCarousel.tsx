@@ -12,31 +12,9 @@ import Flickity from 'flickity'
 import 'flickity/css/flickity.css'
 import { current } from "@reduxjs/toolkit";
 
-export default function RestaurantCard(){
+export default function RestaurantCarousel(){
      const dispatch = useDispatch();
      const {data,loading,error} = useSelector((state) => state.hotel);
-    //  const carouselRef=useRef(null)
-    //  const [progress,setProgress]=useState(0)
- 
-    //  useEffect(()=>{
-    //      const flkty=new Flickity(carouselRef.current,{
-    //          cellAlign: 'left',
-    //          contain: true,
-    //          pageDots:false
-    //      })
-    //      flkty.on('scroll', () => {
-    //         const totalScroll = flkty.x;
-    //         const maxScroll = flkty.maxScrollX;
-    //         const progressValue = Math.max(0, Math.min(1, totalScroll / maxScroll)); // Normalizing to 0-1
-
-    //         console.log("Total Scroll:", totalScroll);
-    //         console.log("Max Scroll:", maxScroll);
-    //         console.log("Normalized Progress:", progressValue);
-
-    //         setProgress(progressValue);
-    //     });
-    //      return (flkty.destroy())
-    //  },[])
      const [progress,setProgress]=useState(0)
      const [slidesToShow,setSlidesToShow]=useState(4)
      
@@ -46,10 +24,11 @@ export default function RestaurantCard(){
      const [randomstate,setRandomState]=useState([])
      useEffect(() => {
         if (data.length>0){
-            setRandomState([...data].sort(()=>Math.random()-0.5).slice(0,10))
+            setRandomState([...data.slice(0,30)].sort(()=>Math.random()-0.5).slice(0,10))
         }
         
      },[data])
+     console.log(data.title)
      
      if(loading) return <h1>Hold On!!! Its On The Way...</h1>
      if(error) return <h1>Opps! Error:{error}</h1>
@@ -116,11 +95,11 @@ export default function RestaurantCard(){
             <div className="relative">
                 <div >
                     <Slider {...settings}>
-                            { randomstate.map((item) => {
+                            { randomstate.map((item:any) => {
                                     return (
-                            <ul className="flex gap-[32px] mb-[16px] " key={item.id} > 
-                                    <li  className="w-[100%]">
-                                        <Link href={'/'} className="flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ">
+                                 <ul className="flex gap-[32px] mb-[16px] " key={item.id} > 
+                                    <li  className="w-[100%] list-hover">
+                                        <Link href={`restaurant/${item.title.toLowerCase().replace(/\s+/g,'-')}`} className="flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ">
                                             <div className="w-[100%] relative rounded-[16px] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.1)]">
                                                     <img src={item.img} alt={item.alt} className="w-[100%] h-[182px] object-cover overflow-hidden  "/>
                                                 <div className="gradient absolute bottom-0 left-0 right-0 flex items-end text-left px-[12px] pb-[4px] "> 

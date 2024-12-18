@@ -16,6 +16,7 @@ export default function Carousal(){
 useEffect(()=>{
     dispatch(fetchFoodData())
 },[dispatch])
+
 const settings = {
     dots: false,
     infinite: false,
@@ -73,8 +74,8 @@ return (
           data.map((item) => {
             return   (
             <div className="flex gap-[24px]" key={item.id}> 
-              <Link href={'/'} >
-                <span className="h-[180px] w-[144px] block object-cover">
+              <Link href={`/collection/${item.category.toLowerCase().replace(/\s+/g,'-')}`} >
+                <span className="h-[180px] w-[144px] block">
                   <img src={item.img} alt={item.alt} className="h-[180px] w-[100%] object-cover" />
                 </span>
               </Link>

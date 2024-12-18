@@ -1,11 +1,10 @@
 import { createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 import { error } from "console";
+import axios from "axios";
 
 export const fetchFoodData=createAsyncThunk("foodList",async()=>{
-    const baseUrl = window.location.origin
-   const res=await fetch(`${baseUrl}/api/foodslider`)
-   const data=await res.json()
-   return data
+   const res=await axios.get(`/api/foodslider`)
+   return res.data
 })
 
 const foodSlice=createSlice({

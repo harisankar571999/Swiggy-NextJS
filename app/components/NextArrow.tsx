@@ -1,6 +1,6 @@
 
 export default function NextArrow({onClick,currentSlide,slideCount}){
-    console.log(currentSlide)
+   
     return (
         <div className="absolute top-[-50px] right-0 ">
           <button className={`rounded-full h-[34px] p-[8px] ${currentSlide===10 ? 'bg-[rgba(2,6,12,0.10)]' : 'bg-[rgba(2,6,12,0.15)]' }`} onClick={onClick}>

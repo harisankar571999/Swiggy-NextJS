@@ -20,6 +20,10 @@
   src: url("../app/fonts/helvetica-neue-5/HelveticaNeueLight.otf");
 }
 @font-face{
+  font-family: 'helvica-semi';
+  src: url("../app/fonts/helvetica-neue-5/HelveticaNeueHeavy.otf");
+}
+@font-face{
   font-family: 'gilroy-reg';
   src:url("../app/fonts/gilroy/Gilroy-Medium.ttf")
 }
@@ -31,6 +35,14 @@
   font-family: 'gilroy-xbold';
   src:url("../app/fonts/gilroy/Gilroy-ExtraBold.ttf")
 }
+@font-face{
+  font-family: 'gilroy-bold';
+  src:url("../app/fonts/gilroy/Gilroy-Bold.ttf")
+}
+/* @font-face{
+  font-family: 'gilroy-bold';
+  src:url("../app/fonts/gilroy/")
+} */
 .gradient{
   height: 81px;
   background-image: linear-gradient(to bottom, rgba(27,30,36,0), rgba(27,30,36)84.21%)
@@ -43,4 +55,13 @@
 }
 .slick-list>div{
   margin-right: -32px;
+}
+.list-hover:hover{
+  transition: all;
+  transition-timing-function: ease-in;
+  transition-duration: 300ms;
+  transform: scale(.9);
+}
+.bg-gradient{
+  background: linear-gradient(rgb(255,255,255) -6.71%,rgb(235,235,242) 56.19%,rgb(223,223,231) 106.56%);
 }

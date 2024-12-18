@@ -1,14 +1,13 @@
 import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 import { error } from "console";
 
 
 
 
 export const fetchHotel=createAsyncThunk('fetchHotel',async ()=>{
-  const baseUrl = window.location.origin
-    const res= await fetch(`${baseUrl}/api/restaurantApi`)
-    const data= await res.json()
-    return data
+    const res= await axios.get(`/api/restaurantApi`)
+    return res.data
 })
 
 const restuarantSlice=createSlice({
@@ -28,9 +27,9 @@ const restuarantSlice=createSlice({
     .addCase(fetchHotel.fulfilled,(state,action)=>{
         state.loading=false
         state.data=action.payload
-        state.error=null
+        state.error=null 
     })
-    .addCase(fetchHotel.rejected,(state,action)=>{
+    .addCase(fetchHotel.rejected,(state:any,action)=>{
         state.loading=false
         state.error=action.error.message
     })
