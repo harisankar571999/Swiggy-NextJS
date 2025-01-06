@@ -7,14 +7,14 @@ import BestCuisines from "./components/BestCuisines";
 import Footer from "./components/Footer";
 import CardSlide from "./components/CardSlide"
 import RestaurantComponent from "./components/RestaurantComponent";
+import NavbarSwitch from "./components/NavbarSwitch";
 
 
 export default function Home() {
   return (
    
    <div>
-      <Header/>
-      {/* <SubHeader/> */}
+      <NavbarSwitch/>
       <FoodSlide/>
       <CardSlide/>
       <RestaurantComponent/>

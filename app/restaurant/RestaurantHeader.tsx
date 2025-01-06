@@ -54,7 +54,7 @@ import { useParams } from "next/navigation";
                                     </svg>
                                 </div>
                                 <span>
-                                    <h1>{selectedRestaurant.rating}</h1>
+                                    <h1>{selectedRestaurant.rating.toFixed(1)}</h1>
                                 </span>
                                 <span>
                                     <h1>(1.2K+ ratings)</h1>
