@@ -7,7 +7,7 @@ function foodslide() {
 
   return (
     <div>
-       <div>
+       <div className="px-[20px]">
           <div className="mx-auto w-[80%] max-[1220px]:w-[100%] text-left">
             <div className="p-[16px] overflow-hidden">
                 <div className="mb-[16px] flex justify-between max-[400px]:pb-[50px]">

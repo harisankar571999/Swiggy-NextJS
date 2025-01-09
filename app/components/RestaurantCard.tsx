@@ -29,7 +29,7 @@ export default function RestaurantCard(){
        
         <> 
         <div className=" w-[100%]">
-            <div className="py-[20px] flex items-center">
+            <div className="py-[20px] flex items-center ml-[10px]">
                 <ul className="flex gap-[8px] items-center">
                     <li className="rounded-[999px] border-[rgba(2,6,12,.15)] border-solid border-[1px] p-[7px_12px] shadow-[0_2px_12px_rgba(2,6,12,0.04)]">
                         <Link href={"/"} className="flex items-center gap-[8px]" >

@@ -211,7 +211,7 @@ const Hide=()=>{
                         <button className="absolute bg-white h-[28px] w-[28px] rounded-[50%] shadow-[0px_2px_6px_rgba(0,0,0,.12)] flex justify-center items-center top-[20px] right-[20px]" onClick={()=>(setFood(null),setFull(false))} >
                             <span>
                                 <svg aria-hidden="true" height="12" width="12">
-                                    <g clip-path="url(#dwa)">
+                                    <g clipPath="url(#dwa)">
                                         <path d="M1.214 2.21a.9.9 0 0 1 1.273 0L6 5.726 9.514 2.21a.9.9 0 0 1 1.273 1.273L7.273 6.997l3.514 3.514a.9.9 0 1 1-1.273 1.273L6.001 
                                         8.27l-3.514 3.514a.9.9 0 1 1-1.273-1.273l3.514-3.513-3.514-3.514a.9.9 0 0 1 0-1.273Z" fill="var(--fill-color)" fillOpacity=".92"/>
                                     </g>

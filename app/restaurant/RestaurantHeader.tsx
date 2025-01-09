@@ -14,6 +14,7 @@ import DealSlider from "./DealSlider";
     },[dispatch])
    console.log(data)
    const selectedRestaurant=data?.find((hotel:any)=>hotel?.title?.toLowerCase().replace(/\s+/g, '-')=== title)
+
    if(!selectedRestaurant){
     return <h1>Hold On!!! Your Food Is On the Way...</h1>
    }
@@ -55,7 +56,7 @@ import DealSlider from "./DealSlider";
                                     </svg>
                                 </div>
                                 <span>
-                                    <h1>{selectedRestaurant?.rating?.toFixed(1)}</h1>
+                                    <h1>{selectedRestaurant?.rating.toFixed(1)}</h1>
                                 </span>
                                 <span>
                                     <h1>(1.2K+ ratings)</h1>

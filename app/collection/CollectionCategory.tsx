@@ -67,20 +67,6 @@ if (!myData) {
                     </span>
                 </Link>
             </li>
-            <li className="rounded-[999px] border-[rgba(2,6,12,.15)] border-solid border-[1px] p-[7px_12px] shadow-[0_2px_12px_rgba(2,6,12,0.04)]">
-                <Link href={"/"} className="flex items-center gap-[8px]" >
-                    <span className=" pb-[3px] font-[gilroy-reg] font-[600] text-[14px] text-[#02060cbf]">
-                        Rs. 300-Rs. 600
-                    </span>
-                </Link>
-            </li>
-            <li className="rounded-[999px] border-[rgba(2,6,12,.15)] border-solid border-[1px] p-[7px_12px] shadow-[0_2px_12px_rgba(2,6,12,0.04)]">
-                <Link href={"/"} className="flex items-center gap-[8px]" >
-                    <span className=" pb-[3px] font-[gilroy-reg] font-[600] text-[14px] text-[#02060cbf]">
-                        Less than Rs. 300
-                    </span>
-                </Link>
-            </li>
         </ul>
       </div>
   </>

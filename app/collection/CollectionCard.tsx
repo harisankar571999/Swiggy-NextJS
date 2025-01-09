@@ -38,11 +38,11 @@ export default function RestaurantCard(){
        
         <>
             <div className="relative max-w-[1260px] mx-auto">
-                <ul className="grid grid-cols-4 p-[32px_20px] gap-[32px]"> 
+                <ul className="grid grid-cols-4 p-[32px_20px] gap-[32px] max-[1300px]:flex max-[1300px]:flex-wrap max-[1300px]:justify-evenly"> 
                     { restaurantData.map((item:any) => {
                             return (
                     
-                            <li  className="w-[100%] list-hover"  key={item.id}>
+                            <li  className="w-[100%] list-hover max-[1300px]:w-[278px]"  key={item.id}>
                                 <Link href={`/restaurant/${item.title.toLowerCase().replace(/\s+/g,'-')}`} className={`flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ${item.id>=50 ? 'cursor-not-allowed': 'cursor-pointer'}`}>
                                     <div className="w-[100%] relative rounded-[16px] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.1)]">
                                             <img src={item.img} alt={item.alt} className="w-[100%] h-[182px] object-cover overflow-hidden  "/>

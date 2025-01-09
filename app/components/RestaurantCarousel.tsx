@@ -72,14 +72,28 @@ export default function RestaurantCarousel(){
           {
             breakpoint: 950,
             settings: {
-              slidesToShow: 2,
+              slidesToShow: 2.5,
               slidesToScroll: 2,
             },
           },
           {
-            breakpoint: 700,
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 650,
             settings: {
               slidesToShow: 1.5,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 540,
+            settings: {
+              slidesToShow: 1.3,
               slidesToScroll: 1,
             },
           },
