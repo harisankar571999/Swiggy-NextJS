@@ -11,6 +11,7 @@ import PrevArrow from "./PrevArrow"
 import Flickity from 'flickity'
 import 'flickity/css/flickity.css'
 import { current } from "@reduxjs/toolkit";
+import Skeleton from "react-loading-skeleton";
 
 export default function RestaurantCarousel(){
      const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export default function RestaurantCarousel(){
      },[data])
      console.log(data.title)
      
-     if(loading) return <h1>Hold On!!! Its On The Way...</h1>
+    
      if(error) return <h1>Opps! Error:{error}</h1>
      
      const settings = {
@@ -112,7 +113,7 @@ export default function RestaurantCarousel(){
 
     return(
        
-        <>
+        <>{ loading ?  <Skeleton count={6}/>:(
             <div className="relative">
                 <div >
                     <Slider {...settings}>
@@ -167,7 +168,7 @@ export default function RestaurantCarousel(){
                         <div className={`bg-[rgba(255,8,0)] absolute rounded-[2px] w-[50.8197%] top-0 left-0 bottom-0 transition-all duration-[.1s] ease-in-out`} style={{ transform: `translateX(${progress}%)` }}></div>
                     </div>
                 </div>
-            </div>
+            </div>)}
         </>
         
     )

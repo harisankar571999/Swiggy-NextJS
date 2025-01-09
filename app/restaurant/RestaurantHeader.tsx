@@ -5,6 +5,10 @@ import { fetchHotel } from "../redux/slice/restuarantSlice";
 import { useEffect } from "react";
 import { useParams } from "next/navigation";
 import DealSlider from "./DealSlider";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+
   export default function RestaurantHeader(){
     const {title} =useParams()
     const dispatch=useDispatch()
@@ -13,10 +17,14 @@ import DealSlider from "./DealSlider";
         dispatch(fetchHotel())
     },[dispatch])
    console.log(data)
-   const selectedRestaurant=data?.find((hotel:any)=>hotel?.title?.toLowerCase().replace(/\s+/g, '-')=== title)
+   const selectedRestaurant=data?.find((hotel:any)=>hotel?.title?.toLowerCase().replace(/\s+/g, '-')===title)
 
    if(!selectedRestaurant){
-    return <h1>Hold On!!! Your Food Is On the Way...</h1>
+    return <>
+                <div className="max-w-[800px] m-[20px_auto_0px] px-[20px]">
+                    <Skeleton count={10}/>
+                </div> 
+            </>
    }
 
     return(

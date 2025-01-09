@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect,  useState } from "react";
 import { fetchHotel } from "../redux/slice/restuarantSlice";
+import Skeleton from "react-loading-skeleton";
 
 
 export default function RestaurantCard(){
@@ -115,6 +116,7 @@ export default function RestaurantCard(){
                 </ul>
             </div>
             <div className="relative">
+                {loading ? <Skeleton count={10}/> : (
                 <ul className="grid grid-cols-4 p-[32px_16px] gap-[32px] max-[1250px]:flex max-[1250px]:flex-wrap max-[1250px]:justify-center max-[1250px]:items-center" > 
                     { random.map((item:any) => {
                             return (
@@ -160,7 +162,7 @@ export default function RestaurantCard(){
                             )
                         })
                     }
-                </ul>
+                </ul>)}
             </div>
             </div>
         </>

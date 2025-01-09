@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { fetchHotel } from "../redux/slice/restuarantSlice";
 import { fetchFoodData } from "../redux/slice/foodSlice";
 import { useParams } from "next/navigation";
-
+import Skeleton from "react-loading-skeleton";
 
 export default function RestaurantCard(){
      const dispatch = useDispatch();
@@ -25,18 +25,22 @@ export default function RestaurantCard(){
       
      const selectedCategory=foodData?.find((item:any)=>item.category.toLowerCase().replace(/\s+/g,'-')===id)
      if(!selectedCategory){
-        return <h1>Loading</h1>
+        return <>
+                   <Skeleton count={10}/>
+                 </>
      }
      const restaurantList=selectedCategory.restaurantId
      console.log(restaurantList)
      const restaurantData=data.filter((hotel:any)=>restaurantList.includes(hotel.id))
 
-     if(loading) return <h1>Hold On!!! Its On The Way...</h1>
+     if(loading)  return <>
+                   <Skeleton count={10}/>
+                 </>
      if(error) return <h1>Opps! Error:{error}</h1>
 
     return(
        
-        <>
+        <> { loading ? <Skeleton/> :(
             <div className="relative max-w-[1260px] mx-auto">
                 <ul className="grid grid-cols-4 p-[32px_20px] gap-[32px] max-[1300px]:flex max-[1300px]:flex-wrap max-[1300px]:justify-evenly"> 
                     { restaurantData.map((item:any) => {
@@ -84,7 +88,7 @@ export default function RestaurantCard(){
                         })
                     }
                 </ul>
-            </div>
+            </div>)} 
         </>
         
     )

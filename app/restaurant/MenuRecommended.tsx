@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { foodMenu } from "../redux/slice/menuSlice"
 import { addItem,IncrementItem,DecrementItem } from "../redux/slice/cartSlice"
 import { toggleSlice } from "../redux/slice/toggleSlice"
+import Skeleton from "react-loading-skeleton"
 
 
 export default function Recommended(){
@@ -88,7 +89,7 @@ const Hide=()=>{
     
 
 
-    if (loading) return <div>Loading...</div>;
+   
     if (error) return <div>Error loading menu.</div>;
  
   
@@ -96,7 +97,7 @@ const Hide=()=>{
         
         <>  
             <div>
-              { !nonVeg &&  (<div className={`max-w-[800px] m-[20px_auto_0px] px-[20px] `}>
+              { !nonVeg &&  (<div className={`max-w-[800px] m-[20px_auto_0px] px-[20px] `}>{loading ? <Skeleton count={5} /> :(
                     <div className="border-t-[16px] border-t-[rgba(2,6,12,.0509803922)]">{
                         data?.map((state:any)=>state?.recommended?.map((item:any,index:any)=>(   
                         
@@ -200,7 +201,7 @@ const Hide=()=>{
                             </div>
                         </div>
                     )))}    
-                    </div>
+                    </div>)}
                  </div>)}
             </div>
             {foodClick &&(

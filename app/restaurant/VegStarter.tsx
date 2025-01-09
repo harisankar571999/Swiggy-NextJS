@@ -88,8 +88,6 @@ const Hide=()=>{
             dispatch(DecrementItem(item));
         };
         
-
-    if (loading) return <div>Loading...</div>;
     if (error) return <div>Error loading menu.</div>;
 
     return(

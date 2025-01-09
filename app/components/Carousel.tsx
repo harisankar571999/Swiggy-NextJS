@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link"
 import NextArrow from "./NextArrow"
 import PrevArrow from "./PrevArrow"
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Carousal(){
     const dispatch = useDispatch()
@@ -65,10 +67,13 @@ const settings = {
     ],
   };
 
-  if (loading) return <h1>Loading...</h1>;
+
   if (error) return <h1>Error: {error}</h1>;
 return (
+   <>
+    { loading ? <Skeleton count={5}/> : (
     <div className="relative">
+       
         <Slider {...settings}>
           {
           data.map((item) => {
@@ -84,7 +89,8 @@ return (
               })
             }
         </Slider>
-    </div>
+    </div>)}
+    </>
     )
 }
 

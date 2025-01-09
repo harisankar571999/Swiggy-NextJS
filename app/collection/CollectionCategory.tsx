@@ -5,6 +5,7 @@ import {  useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { fetchFoodData } from "@/app/redux/slice/foodSlice";
 import { useParams } from "next/navigation";
+import Skeleton from "react-loading-skeleton";
 
 
 export default function CollectionComponent(){  
@@ -23,14 +24,18 @@ useEffect(()=>{
    console.log(myData)
 
    if (loading) {
-    return <p>Loading...</p>;
+    return <>
+    <Skeleton count={10}/>
+    </>
 }
 if (error) {
     return <p>Error loading data: {error.message}</p>;
 }
-if (!myData) {
-    return <h1>HOLD ON!!! ITS ON THE WAY...</h1>;
-}
+ if(!myData){
+    return <>
+        <Skeleton count={10}/>
+    </>
+   }
 
 
 
