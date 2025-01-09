@@ -33,7 +33,7 @@ const Full=(item:any)=>{
 const Hide=()=>{
     setHide(!hide)
 }
-    const AddItem = (item: any) => {
+    const Add = (item: any) => {
       
         
         if (item.customise){
@@ -169,7 +169,7 @@ const Hide=()=>{
                                             <div className={` bottom-[20px]  flex flex-col  items-center cursor-pointer ${item.img ? 'relative' : 'justify-center bottom-0 pr-[20px]' }`}>
                                                 <div className="relative">
                                                     <div className="bg-[white] border-[rgba(2,6,12,0.15)] border-[1px] w-[120px] h-[40px] rounded-[8px] flex items-center justify-center shadow-[0px_3px_8px_rgba(40,44,63,0.08)] relative overflow-hidden">
-                                                        { !(items[item.id]?.count) ? (  <button className="relative z-[5] "  onClick={()=>AddItem(item)}>
+                                                        { !(items[item.id]?.count) ? (  <button className="relative z-[5] "  onClick={()=>Add(item)}>
                                                                 <span className="font-[gilroy-xbold] text-[18px] text-[rgb(27,166,114)] text-center cursor-pointer">
                                                                     ADD
                                                                 </span>
@@ -199,14 +199,14 @@ const Hide=()=>{
                                 </div>
                             </div>
                         </div>
-                    )))}
+                    )))}    
                     </div>
                  </div>)}
             </div>
             {foodClick &&(
             <div className="w-[100%] z-[119999] fixed top-0 bottom-0">
                 <div className="bg-[rgba(2,6,12,0.6)]  h-[100%]  flex items-center justify-center">
-                    <div className="flex items-center justify-center" >
+                    <div className="flex items-center justify-center max-[700px]:w-[90%] max-[700px]:h-auto " >
                         <div className="w-[600px]  rounded-[24px]  bg-[#f0f0f5] relative">
                         <button className="absolute bg-white h-[28px] w-[28px] rounded-[50%] shadow-[0px_2px_6px_rgba(0,0,0,.12)] flex justify-center items-center top-[20px] right-[20px]" onClick={()=>(setFood(null),setFull(false))} >
                             <span>
@@ -228,7 +228,7 @@ const Hide=()=>{
                                     <h3 className="font-[gilroy-reg] font-[400px] text-[14px] text-[rgba(2,6,12,.6)]">₹{foodClick?.price.toFixed(2)}</h3>
                                 </div>
                                 <div className="mb-[12px] mt-[4px]">
-                                    <h1 className="font-[gilroy-xbold] text-[20px] text-[rgba(2,6,12,0.75)]">Customise as per your taste</h1>
+                                    <h1 className="font-[gilroy-xbold] text-[20px] text-[rgba(2,6,12,0.75)] max-[550px]:text-[18px]">Customise as per your taste</h1>
                                 </div>
                             </div>
                             <div className="px-[16px] pb-[36px] ">
@@ -307,7 +307,7 @@ const Hide=()=>{
                                          </button>
                                     </div>
                                     <div className="w-[55%]">
-                                        <button className="bg-[rgb(27,166,114)] w-[100%] rounded-[12px] h-[44px] font-[gilroy-xbold] font-[16px] text-[rgba(255,255,255,0.92)] hover:scale-[.96] transition-all duration-[.1s] ease-in" onClick={()=>(AddItem(foodClick),setFull(false))} >
+                                        <button className="bg-[rgb(27,166,114)] w-[100%] rounded-[12px] h-[44px] font-[gilroy-xbold] font-[16px] text-[rgba(255,255,255,0.92)] hover:scale-[.96] transition-all duration-[.1s] ease-in" onClick={()=>(Add(foodClick),setFull(false))} >
                                             Add Item to cart
                                         </button>
                                     </div>

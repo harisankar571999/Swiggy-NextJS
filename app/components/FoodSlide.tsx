@@ -8,10 +8,10 @@ function foodslide() {
   return (
     <div>
        <div>
-          <div className="mx-auto max-w-[80%]">
+          <div className="mx-auto w-[80%] max-[1220px]:w-[100%] text-left">
             <div className="p-[16px] overflow-hidden">
-                <div className="mb-[16px] flex justify-between">
-                  <h2 className="font-[gilroy-xbold] font-[800] text-[24px] pl-[16px]">What's on your mind?</h2>
+                <div className="mb-[16px] flex justify-between max-[400px]:pb-[50px]">
+                  <h2 className="font-[gilroy-xbold] font-[800] text-[24px] pl-[16px] max-[650px]:text-[22px] max-[550px]:text-[20px] max-[450px]:text-[18px] ">What's on your mind?</h2>
                 </div>
                 <div className="pl-[16px]">
                   <Carousal/>

@@ -90,3 +90,9 @@
   transition-timing-function: ease-out;
   transform: translate3d(0,48px,0)
 }
+
+@media (max-width: 1550px){
+  .evenly{
+    justify-content: space-evenly;
+  }
+}

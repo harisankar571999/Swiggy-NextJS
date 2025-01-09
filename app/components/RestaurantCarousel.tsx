@@ -47,37 +47,44 @@ export default function RestaurantCarousel(){
         prevArrow: <PrevArrow />,
       
 
-        responsive: [
+        responsive: [  
           {
             breakpoint: 1300,
             settings: {
-              slidesToShow: 6,
-              slidesToScroll: 3,
-            },
-          },
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 5,
+              slidesToShow: 3.5,
               slidesToScroll: 2,
             },
           },
           {
-            breakpoint: 870,
+            breakpoint: 1200,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 3,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 1065,
+            settings: {
+              slidesToShow: 2.5,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 950,
+            settings: {
+              slidesToShow: 2,
               slidesToScroll: 2,
             },
           },
           {
             breakpoint: 700,
             settings: {
-              slidesToShow: 2,
+              slidesToShow: 1.5,
               slidesToScroll: 1,
             },
           },
           {
-            breakpoint: 480,
+            breakpoint: 460,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
@@ -97,7 +104,7 @@ export default function RestaurantCarousel(){
                     <Slider {...settings}>
                             { randomstate.map((item:any) => {
                                     return (
-                                 <ul className="flex gap-[32px] mb-[16px] " key={item.id} > 
+                                 <ul className="flex gap-[32px] mb-[16px] max-[700px]:justify-center " key={item.id} > 
                                     <li  className="w-[100%] list-hover">
                                         <Link href={`restaurant/${item.title.toLowerCase().replace(/\s+/g,'-')}`} className="flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ">
                                             <div className="w-[100%] relative rounded-[16px] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.1)]">
@@ -107,7 +114,7 @@ export default function RestaurantCarousel(){
                                                 </div>
                                             </div>
                                             <div className="pl-[16px] overflow-hidden w-[260px]">
-                                                <h1 className="font-[gilroy-xbold] font-[700] text-[18px] whitespace-nowrap overflow-clip text-ellipsis">{item.title}</h1>
+                                                <h1 className="font-[gilroy-xbold] font-[700] text-[18px] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{item.title}</h1>
                                                 <div className="flex items-center gap-[3px]">
                                                     <span>
                                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-hidden="true" stroke-color="rgba(2, 6, 12, 0.92)" fill-color="rgba(2, 6, 12, 0.92)">
@@ -129,8 +136,8 @@ export default function RestaurantCarousel(){
                                                     <span className="font-[gilroy-reg]  font-[600] text-[16px]">{item.timing} mins</span>
                                                 </div>
                                                 <div className="flex flex-col gap-[1px]">   
-                                                    <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis">{item.food}</span>
-                                                    <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis">{item.locality}</span>
+                                                    <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{item.food}</span>
+                                                    <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{item.locality}</span>
                                                 </div>
                                             </div>
                                         </Link >   

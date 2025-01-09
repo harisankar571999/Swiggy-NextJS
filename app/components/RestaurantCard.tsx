@@ -27,7 +27,8 @@ export default function RestaurantCard(){
 
     return(
        
-        <>
+        <> 
+        <div className=" w-[100%]">
             <div className="py-[20px] flex items-center">
                 <ul className="flex gap-[8px] items-center">
                     <li className="rounded-[999px] border-[rgba(2,6,12,.15)] border-solid border-[1px] p-[7px_12px] shadow-[0_2px_12px_rgba(2,6,12,0.04)]">
@@ -114,11 +115,11 @@ export default function RestaurantCard(){
                 </ul>
             </div>
             <div className="relative">
-                <ul className="grid grid-cols-4 p-[32px_16px] gap-[32px] max-[1250px]:flex" > 
+                <ul className="grid grid-cols-4 p-[32px_16px] gap-[32px] max-[1250px]:flex max-[1250px]:flex-wrap max-[1250px]:justify-center max-[1250px]:items-center" > 
                     { random.map((item:any) => {
                             return (
                     
-                            <li  className="w-[100%] list-hover"  key={item.id}>
+                            <li  className="w-[100%] list-hover max-[1250px]:w-[272px]"  key={item.id}>
                                 <Link href={`/restaurant/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className={`flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ${item.id>=50 ? 'cursor-not-allowed': 'cursor-pointer'}`}>
                                     <div className="w-[100%] relative rounded-[16px] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.1)]">
                                             <img src={item.img} alt={item.alt} className="w-[100%] h-[182px] object-cover overflow-hidden  "/>
@@ -160,6 +161,7 @@ export default function RestaurantCard(){
                         })
                     }
                 </ul>
+            </div>
             </div>
         </>
         

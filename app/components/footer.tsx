@@ -3,12 +3,12 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <>
-           <div className="bg-[rgba(240,240,245)] mt-[64px]" >
-                <div className="w-[70%] mx-auto border-t-[1px] border-[rgba(2,6,12,0.75)] p-[24px_0_32px] flex items-center gap-[1%] justify-center">
-                    <h1 className="font-[gilroy-xbold] text-[24px] text-[rgba(2,6,12,0.75)] text-center">
+           <footer className="bg-[rgba(240,240,245)] mt-[64px]" >
+                <div className="w-[70%] mx-auto border-t-[1px] border-[rgba(2,6,12,0.75)] p-[24px_0_32px] flex items-center gap-[1%] justify-center max-[1400px]:flex-col">
+                    <h1 className="font-[gilroy-xbold] text-[24px] text-[rgba(2,6,12,0.75)] text-center ">
                         For better experience,download the Swiggy app now
                     </h1>
-                    <div className="flex items-center gap-[6%]">
+                    <div className="flex items-center gap-[6%] max-[1400px]:mt-[20px]  max-[480px]:flex-col max-[480px]:gap-[10px]">
                         <span className="">
                             <Link href={'/'}>
                               <img src="/assets/footer/play_store.avif" alt="play_store.avif" className="max-[160px] h-[64px]"/>
@@ -21,7 +21,7 @@ export default function Footer() {
                         </span>
                     </div>
                 </div>
-                <div className="w-[65%] mx-auto flex justify-between mt-[64px] pb-[2rem]">
+                <div className="w-[65%] mx-auto flex justify-between mt-[64px] pb-[2rem] max-[900px]:flex-col"> 
                     <div className="ml-15px flex flex-col items-center gap-[13px]">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="160" height="49" fill="none"><g filter="url(#filter0_b_674_19294)"><path fill="#FE5005" d="M69.097 35.543c-2.126 0-3.916-.456-5.376-1.368-1.459-.932-2.5-2.228-3.13-3.888l4.191-2.43c.85 
@@ -56,7 +56,7 @@ export default function Footer() {
                           © 2024 Swiggy Limited
                         </h1>
                     </div>
-                    <div className="flex items-start gap-[51px]">
+                    <div className="flex items-start gap-[51px] max-[900px]:mt-[50px] flex-wrap evenly">
                         <div className="flex flex-col gap-[16px]">
                             <h1 className="font-[gilroy-xbold] font-[700] text-[18px]">Company</h1>
                             <ul className="flex flex-col gap-[16px]">
@@ -136,7 +136,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-           </div>
+           </footer>
         </>
     )
 }

@@ -505,9 +505,7 @@ export async function GET() {
     review:4,
     type:'Dish',
     customise:false
-  }
-]
-}
+  }]}
 ]
 )
 }

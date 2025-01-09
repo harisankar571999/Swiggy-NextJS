@@ -9,7 +9,7 @@ function BestCuisines() {
             <div >
                 <h2 className="font-[gilroy-xbold] text-[24px] text-[rgba(2,6,12,0.92)]">Best Cuisines Near Me</h2>
             </div>
-            <div className="mt-[16px] flex gap-[32px]">
+            <div className="mt-[16px] flex gap-[32px] flex-wrap evenly">
                 <div className="flex flex-col gap-[16px]">
                     <div>
                     <Link href={'/'}><div className="p-[16px] border-[1.5px] border-[rgba(2,6,12,0.1) 

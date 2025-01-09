@@ -6,12 +6,77 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import SwiperArrows from "./SwiperArrows";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import NextArrow from "../components/NextArrow"
+import PrevArrow from "../components/PrevArrow"
 
 
     
 
 export default function DealCards(){
+
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 400,
+        slidesToShow: 2.2,
+        slidesToScroll: 2,
+        swipeToSlide: true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow  />,
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                },
+              },
+          {
+            breakpoint: 744,
+            settings: {
+                
+              slidesToShow: 1.9,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 700,
+            settings: {
+                
+              slidesToShow: 1.75,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 650,
+            settings: {
+                
+              slidesToShow: 1.6,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              centerMode: true,
+              slidesToShow: 1.1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 540,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      };
+    
    
     
 
@@ -20,18 +85,8 @@ export default function DealCards(){
        
         <>
             <div className="relative">
-                <Swiper 
-                  modules={[Navigation]}
-                  spaceBetween={270}
-                  slidesPerView={3}
-                  navigation ={{
-                    nextEl:'.next-button',
-                    prevEl:'.prev-button'
-                  }}
-                  
-                >
-                <SwiperSlide>
-                <div className="" >
+            <Slider {...settings}>
+                <div className="block mr-[50px]" >
                     <div className="w-[323px] p-[12px] rounded-[20px] border-[rgba(2,6,12,0.15)] border-[1px] flex items-center gap-[12px] whitespace-nowrap " >
                         <div className="w-[48px] h-[48px]">
                             <img src="/assets/restaurant/offer png.avif" alt="png.avif" className="object-cover" />
@@ -42,9 +97,8 @@ export default function DealCards(){
                         </div>
                     </div>
                 </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                <div className="" >
+               
+                <div className="block" >
                     <div className="w-[323px] p-[12px] rounded-[20px] whitespace-nowrap border-[rgba(2,6,12,0.15)] border-[1px] flex items-center gap-[12px]" >
                         <div className="w-[48px] h-[48px]">
                             <img src="/assets/restaurant/offer png.avif" alt="png.avif" className="object-cover" />
@@ -55,9 +109,8 @@ export default function DealCards(){
                         </div>
                     </div>
                 </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                <div className="" >
+              
+                <div className="block" >
                     <div className="w-[323px] p-[12px] rounded-[20px] border-[rgba(2,6,12,0.15)] border-[1px] flex items-center gap-[12px]" >
                         <div className="w-[48px] h-[48px]">
                             <img src="/assets/restaurant/offer png.avif" alt="png.avif" className="object-cover" />
@@ -68,9 +121,8 @@ export default function DealCards(){
                         </div>
                     </div>
                 </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                <div className="" >
+               
+                <div className="block" >
                     <div className="w-[323px] p-[12px] whitespace-nowrap rounded-[20px] border-[rgba(2,6,12,0.15)] border-[1px] flex items-center gap-[12px]" >
                         <div className="w-[48px] h-[48px]">
                             <img src="/assets/restaurant/offer png.avif" alt="png.avif" className="object-cover" />
@@ -81,9 +133,8 @@ export default function DealCards(){
                         </div>
                     </div>
                 </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                <div className="" >
+               
+                <div className="block" >
                     <div className="w-[323px] p-[12px] whitespace-nowrap rounded-[20px] border-[rgba(2,6,12,0.15)] border-[1px] flex items-center gap-[12px]" >
                         <div className="w-[48px] h-[48px]">
                             <img src="/assets/restaurant/offer png.avif" alt="png.avif" className="object-cover" />
@@ -94,8 +145,7 @@ export default function DealCards(){
                         </div>
                     </div>
                 </div>
-                </SwiperSlide>
-                <SwiperSlide>
+             
                 <div className="" >
                     <div className="w-[323px] p-[12px] whitespace-nowrap rounded-[20px] border-[rgba(2,6,12,0.15)] border-[1px] flex items-center gap-[12px]" >
                         <div className="w-[48px] h-[48px]">
@@ -107,9 +157,7 @@ export default function DealCards(){
                         </div>
                     </div>
                 </div>  
-                </SwiperSlide>
-                </Swiper> 
-                <SwiperArrows/>
+                </Slider>
             </div> 
         </>
     )

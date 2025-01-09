@@ -1,40 +1,42 @@
 'use client'
 import { useEffect, useState } from 'react'
-import Header from '../components/Header'
 import axios from 'axios'
-import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 
-function SearchComponent() {
+function SearchFood() {
 
-    const [hotel,setHotel]=useState([])
+   
     const[food,setFood]=useState([])
+    const [hotel,setHotel]=useState([])
     const [searchTerm,setSearchTerm]=useState('')
     const [filteredResult,setFilteredResult]=useState([])
 
     useEffect(()=>{
-         axios.get('/api/restaurantApi')
+        axios.get('/api/restaurantApi')
+        .then((res)=>{
+           
+           setHotel(res.data)
+       })
+     }
+   ,[])
+
+    useEffect(()=>{
+         axios.get('/api/foodSearch')
          .then((res)=>{
             const hotelWithType= res.data.map((item:any)=>{
                 return{
-                    ...item,type:'Restaurant'
+                    ...item,type:'Dish'
             }
             })
-            setHotel(hotelWithType)
+            setFood(hotelWithType)
         })
       }
     ,[])
 
-    useEffect(()=>{
-        axios.get('/api/foodSearch')
-        .then((res)=>{
-            
-            setFood(res.data)
-           })   
-     }
-   ,[])
-
-    console.log(food)
+     const {title}=useParams()
+  
+    
 
     useEffect(()=>{
         if(searchTerm.trim() ===''){
@@ -42,12 +44,10 @@ function SearchComponent() {
         }
          
             const term=searchTerm?.toLowerCase()
-            console.log(hotel)
+            console.log(food)
             console.log(term)
             const searchResult=[
-                ...hotel?.filter((item)=> item.title.toLowerCase().includes(term)),
                 ...food?.filter((item)=> item?.name.toLowerCase().includes(term))
-             
                 
             ].sort((a,b)=>{
                 const firstWord=(item:any)=> item.title?.toLowerCase().split(" ")[0].startsWith(term)
@@ -67,10 +67,15 @@ function SearchComponent() {
 
          
             console.log(term)
-    },[searchTerm,hotel,food])
+    },[searchTerm,food])
 
-
-
+    const restaurant = hotel.find(
+        (item) => item?.title.trim().toLowerCase().replace(/\s+/g, '-') === title.trim()
+      );
+      
+    console.log(restaurant)
+   
+   
     const highlightText =(text:any,term:any)=>{
         if (!text || typeof text !== 'string') {
             return text
@@ -87,14 +92,13 @@ function SearchComponent() {
         }
   return (
     <div>
-       <Header/>
         <div>
             <div className='pt-[48px] pb-[8px] w-[100]% sticky t-[80px] z-[2] max-[650px]:w-[100%]'>
                 <div>
                     <form action="post" >
                         <div className=''>
                             <div className='flex items-center relative'>
-                                <input type="search" placeholder='Search for restaurants and food' value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} className='bg-[#fff] h-[48px]  max-[600px]:text-[12px] border-[rgba(40,44,63,.3)] cursor-pointer border-solid border-[1px] w-[53%] rounded-[3px] m-[0_auto_8px] outline-none font-[helvica-reg] font-[600] text-[#686b78] px-[13px] placeholder:text-[#686b78] placeholder:font-[600]  placeholder:font-[helvica-reg] leading-[19px] '/>
+                                <input type="search" placeholder={`Search for food in ${restaurant?.title} `} value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} className='bg-[#fff] h-[48px]  max-[600px]:text-[12px] border-[rgba(40,44,63,.3)] cursor-pointer border-solid border-[1px] w-[53%] rounded-[3px] m-[0_auto_8px] outline-none font-[helvica-reg] font-[600] text-[#686b78] px-[13px] placeholder:text-[#686b78] placeholder:font-[600]  placeholder:font-[helvica-reg] leading-[19px] '/>
                                 <div className='absolute top-[15px] right-[24.5%]'>
                                     <span className={`${searchTerm ? 'hidden' : 'block'}`}> 
                                         <svg viewBox="5 -1 12 25" height="18" width="18" fill="#686b78">
@@ -116,22 +120,18 @@ function SearchComponent() {
         </div>
         <div className='w-[53%] mx-auto pt-[13px] flex flex-col max-[650px]:w-[80%]'>
             { filteredResult?.map((item)=>(
-            <div key={item.index}>
-                <Link href={`/restaurant/${item?.title?.toLowerCase().replace(/\s+/g,'-')}`} >
-                    <button className='w-[100%] p-[14px_16px] flex items-center gap-[15px]' >
-                        <div className='w-[64px] h-[64px] rounded-[4px]'>
-                            <img src={item?.img || '/assets/food/coming soon.jpg'} className="w-[64px] h-[64px] rounded-[4px]" />
-                        </div>
-                        <div className='flex flex-col items-start'>
-                            <div className='font-[helvica-reg] font-[400] text-[14.98px] text-[#282c3f] text-left'  dangerouslySetInnerHTML={{__html: highlightText(item.title || item.name, searchTerm),}}></div>
-                            <div className='font-[helvica-reg]  font-[400] text-[14.98px] text-[#686b78]'>{item.type}</div>
-                        </div>
-                    </button>
-                </Link>
-            </div>
+            <button className='w-[100%] p-[14px_16px] flex items-center gap-[15px]' key={item.id}>
+                <div className='w-[64px] h-[64px] block rounded-[4px]'>
+                    <img src={item?.img || '/assets/food/coming soon.jpg'} className="w-[64px] block   h-[64px] rounded-[4px]" />
+                </div>
+                <div className='flex flex-col items-start'>
+                   <div className='font-[helvica-reg] font-[400] text-[14.98px] text-[#282c3f] text-left'  dangerouslySetInnerHTML={{__html: highlightText(item.title || item.name, searchTerm),}}></div>
+                    <div className='font-[helvica-reg]  font-[400] text-[14.98px] text-[#686b78]'>{item.type}</div>
+                </div>
+            </button>
        ))}</div>
     </div>
   )
 }
 
-export default SearchComponent
+export default SearchFood

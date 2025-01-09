@@ -205,7 +205,7 @@ const Hide=()=>{
             {foodClick &&(
             <div className="w-[100%] z-[119999] fixed top-0 bottom-0">
                 <div className="bg-[rgba(2,6,12,0.6)]  h-[100%]  flex items-center justify-center">
-                    <div className="flex items-center justify-center" >
+                    <div className="flex items-center justify-center max-[700px]:w-[90%] max-[700px]:h-auto " >
                         <div className="w-[600px]  rounded-[24px]  bg-[#f0f0f5] relative">
                         <button className="absolute bg-white h-[28px] w-[28px] rounded-[50%] shadow-[0px_2px_6px_rgba(0,0,0,.12)] flex justify-center items-center top-[20px] right-[20px]" onClick={()=>(setFood(null),setFull(false))} >
                             <span>
@@ -227,7 +227,7 @@ const Hide=()=>{
                                     <h3 className="font-[gilroy-reg] font-[400px] text-[14px] text-[rgba(2,6,12,.6)]">₹{foodClick?.price.toFixed(2)}</h3>
                                 </div>
                                 <div className="mb-[12px] mt-[4px]">
-                                    <h1 className="font-[gilroy-xbold] text-[20px] text-[rgba(2,6,12,0.75)]">Customise as per your taste</h1>
+                                    <h1 className="font-[gilroy-xbold] text-[20px] text-[rgba(2,6,12,0.75)] max-[550px]:text-[18px]">Customise as per your taste</h1>
                                 </div>
                             </div>
                             <div className="px-[16px] pb-[36px] ">

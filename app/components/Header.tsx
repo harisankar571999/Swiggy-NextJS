@@ -11,7 +11,7 @@ function Header() {
                 <div className="mx-auto max-w-[1200px]">
                     <nav className="flex justify-between">
                         <div className="flex gap-[45px] items-center max-[570px]:gap-[30px]">
-                            <div className="py-[13px]" title="Swiggy">
+                            <div className="py-[13px] hover:scale-[1.1] transition-all ease-in-out duration-[400ms]" title="Swiggy">
                                 <Link href={'/'}>
                                     <svg viewBox="0 0 61 61" height="49" width="49">
                                         <g clipPath="url(#a)">
@@ -35,8 +35,8 @@ function Header() {
                                     </svg>
                                 </Link>
                             </div>
-                            <div className="flex gap-[20px] items-center">
-                                <span className=" font-[helvica-med] text-[#3d4152] font-bold text-[14px] border-b-[2px] border-[#3d4152] " >Other </span>
+                            <div className="flex gap-[20px] items-center cursor-pointer">
+                                <span className=" font-[helvica-med] text-[#3d4152] font-bold text-[14px] border-b-[2px] border-[#3d4152] hover:text-[#ff5200] hover:border-[#ff5200] " >Other </span>
                                 <span  className="t-0">
                                     <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6.36256 4.95L11.3126 0L12.7266 1.414L6.36256 7.778L-0.00143814 1.414L1.41256 0L6.36256
