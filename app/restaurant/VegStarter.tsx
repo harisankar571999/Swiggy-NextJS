@@ -29,7 +29,7 @@ const View=()=>{
     setView(!view)
 }    
 
-const Full=(item)=>{
+const Full=()=>{
   setFull(!full)
   }
 
@@ -43,7 +43,7 @@ const Hide=()=>{
         if (item.customise){
              setFood(item)
             if(foodClick){
-                setItems((prev:any)=>({
+                setItems((prev)=>({
                     ...prev,[item.id]:{count:1}
               }))
               dispatch(addItem(item))
@@ -52,7 +52,7 @@ const Hide=()=>{
         }
         else{
             setFood(null)
-            setItems((prev:any)=>({
+            setItems((prev)=>({
             ...prev,[item.id]:{count:1}
             }))
             dispatch(addItem(item))
@@ -62,14 +62,14 @@ const Hide=()=>{
       
         const Increment = (item) => {
           
-          setItems((prev:any)=>({
+          setItems((prev)=>({
             ...prev,[item.id]:{count:(prev[item.id]?.count) +1}
           }))
           dispatch(IncrementItem(item)) 
         }
       
         const Decrement = (item) => {
-            setItems((prev: any) => {
+            setItems((prev) => {
                 const updatedItems = { ...prev };
                 
                 if (updatedItems[item.id]) {
