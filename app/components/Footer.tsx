@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -11,12 +12,12 @@ export default function Footer() {
                     <div className="flex items-center gap-[6%] max-[1400px]:mt-[20px]  max-[480px]:flex-col max-[480px]:gap-[10px]">
                         <span className="">
                             <Link href={'/'}>
-                              <img src="/assets/footer/play_store.avif" alt="play_store.avif" className="max-[160px] h-[64px]"/>
+                              <Image width={160} height={64} src="/assets/footer/play_store.avif" alt="play_store.avif" className="max-[160px] h-[64px]"/>
                             </Link>
                         </span>
                         <span>
                             <Link href={'/'}>
-                                <img src="/assets/footer/app_store.avif" alt="app_store.avif" className="max-[160px] h-[64px]" />
+                                <Image width={160} height={64}  src="/assets/footer/app_store.avif" alt="app_store.avif" className="max-[160px] h-[64px]" />
                             </Link>
                         </span>
                     </div>
@@ -129,11 +130,11 @@ export default function Footer() {
                             <div className="flex flex-col gap-[16px]">
                                 <h1 className="font-[gilroy-xbold] font-[700] text-[18px]">Social Links</h1>
                                 <ul className="flex gap-[16px]">
-                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><img src="/assets/footer/icon-linkedin.avif" alt="icon-linkedin.avif" className="h-[18px] w-[16px]" /></Link></li>
-                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><img src="/assets/footer/icon-instagram.avif" alt="icon-instagram.avif" className="h-[18px] w-[16px]" /></Link></li>
-                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><img src="/assets/footer/icon-facebook.avif" alt="icon-facebook.avif"  className="h-[18px] w-[12px]"/></Link></li>
-                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><img src="/assets/footer/icon-pinterest.avif" alt="icon-pinterest.avif" className="h-[18px] w-[16px]"/></Link></li>
-                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><img src="/assets/footer/icon-twitter.avif" alt="icon-twitter.avif" className="h-[16px] w-[16px]" /></Link></li>
+                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><Image width={16} height={18} src="/assets/footer/icon-linkedin.avif" alt="icon-linkedin.avif" className="h-[18px] w-[16px]" /></Link></li>
+                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><Image width={16} height={18} src="/assets/footer/icon-instagram.avif" alt="icon-instagram.avif" className="h-[18px] w-[16px]" /></Link></li>
+                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><Image width={16} height={18} src="/assets/footer/icon-facebook.avif" alt="icon-facebook.avif"  className="h-[18px] w-[12px]"/></Link></li>
+                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><Image width={16} height={18} src="/assets/footer/icon-pinterest.avif" alt="icon-pinterest.avif" className="h-[18px] w-[16px]"/></Link></li>
+                                    <li><Link href={'/'} className="font-[gilroy-reg] text-[16px] text-[rgba(2,6,12,0.6)]"><Image width={16} height={18} src="/assets/footer/icon-twitter.avif" alt="icon-twitter.avif" className="h-[16px] w-[16px]" /></Link></li>
                                 </ul>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { fetchHotel } from "../redux/slice/restuarantSlice";
 import { fetchFoodData } from "../redux/slice/foodSlice";
 import { useParams } from "next/navigation";

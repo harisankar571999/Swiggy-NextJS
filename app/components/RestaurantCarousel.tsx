@@ -114,7 +114,7 @@ export default function RestaurantCarousel(){
             <div className="relative">
                 <div >
                     <Slider {...settings}>
-                            { randomstate.map((item:any) => {
+                            { randomstate.map((item) => {
                                     return (
                                  <ul className="flex gap-[32px] mb-[16px] max-[700px]:justify-center " key={item.id} > 
                                     <li  className="w-[100%] list-hover">

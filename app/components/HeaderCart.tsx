@@ -5,8 +5,8 @@ import { useSelector } from "react-redux"
 
 export default function HeaderCart(){
  
-    const cart =useSelector((state:any)=>state.cart)
-    const total=Object.values(cart).reduce((total:any,item:any)=>total+item.count,0)
+    const cart =useSelector((state)=>state.cart)
+    const total=Object.values(cart).reduce((total,item)=>total+item.count,0)
 
   return(  <>
         <li className="flex gap-[50px] items-center ">
