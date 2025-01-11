@@ -1,5 +1,4 @@
 import { createSlice,createAsyncThunk} from "@reduxjs/toolkit";
-import { error } from "console";
 import axios from "axios";
 
 export const fetchFoodData=createAsyncThunk("foodList",async()=>{

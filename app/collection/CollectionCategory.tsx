@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import {  useEffect, useState } from "react";
+import {  useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { fetchFoodData } from "@/app/redux/slice/foodSlice";
 import { useParams } from "next/navigation";
@@ -20,7 +20,7 @@ useEffect(()=>{
     dispatch(fetchFoodData())
 
 },[dispatch,])
-   const myData= data.find((item:any)=>item.category.toLowerCase().replace(/\s+/g,'-')===id)
+   const myData= data.find((item)=>item.category.toLowerCase().replace(/\s+/g,'-')===id)
    console.log(myData)
 
    if (loading) {

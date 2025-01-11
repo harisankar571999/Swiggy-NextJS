@@ -1,6 +1,4 @@
-import Image from "next/image";
-import Header from "./components/Header";
-import SubHeader from "./components/SubHeader";
+
 import FoodSlide from "./components/FoodSlide";
 import BestPlaces from  "./components/BestPlaces";
 import BestCuisines from "./components/BestCuisines";

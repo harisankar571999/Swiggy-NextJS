@@ -1,6 +1,6 @@
 import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { error } from "console";
+
 
 
 
@@ -29,7 +29,7 @@ const restuarantSlice=createSlice({
         state.data=action.payload
         state.error=null 
     })
-    .addCase(fetchHotel.rejected,(state:any,action)=>{
+    .addCase(fetchHotel.rejected,(state,action)=>{
         state.loading=false
         state.error=action.error.message
     })

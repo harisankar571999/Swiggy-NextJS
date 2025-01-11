@@ -18,7 +18,7 @@ export default function NonVeg(){
         const [foodClick,setFood]=useState(null)
         const [full,setFull]=useState(false)
         const [view,setView]=useState(false)
-    
+        console.log(loading)
     const View=()=>{
         setView(!view)
     }    

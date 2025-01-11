@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect,  useState } from "react";
 import { fetchHotel } from "../redux/slice/restuarantSlice";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 
 export default function RestaurantCard(){
      const dispatch = useDispatch();
-     const {data,loading,error} = useSelector((state:any) => state.hotel);
+     const {data,loading,error} = useSelector((state) => state.hotel);
      const [random, setRandom] = useState([]);
 
      
@@ -118,13 +119,13 @@ export default function RestaurantCard(){
             <div className="relative">
                 {loading ? <Skeleton count={10}/> : (
                 <ul className="grid grid-cols-4 p-[32px_16px] gap-[32px] max-[1250px]:flex max-[1250px]:flex-wrap max-[1250px]:justify-center max-[1250px]:items-center" > 
-                    { random.map((item:any) => {
+                    { random.map((item) => {
                             return (
                     
                             <li  className="w-[100%] list-hover max-[1250px]:w-[272px]"  key={item.id}>
                                 <Link href={`/restaurant/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className={`flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ${item.id>=50 ? 'cursor-not-allowed': 'cursor-pointer'}`}>
                                     <div className="w-[100%] relative rounded-[16px] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.1)]">
-                                            <img src={item.img} alt={item.alt} className="w-[100%] h-[182px] object-cover overflow-hidden  "/>
+                                            <Image width={100}  height={182} src={item.img} alt={item.alt} className="w-[100%] h-[182px] object-cover overflow-hidden  "/>
                                         <div className="gradient absolute bottom-0 left-0 right-0 flex items-end text-left px-[12px] pb-[4px] "> 
                                             <div className="font-[proximacond] text-[24px] text-[rgba(255,255,255,0.92)]">{item.overlay}</div>
                                         </div>

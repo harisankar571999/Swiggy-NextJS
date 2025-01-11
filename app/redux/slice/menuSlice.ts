@@ -1,4 +1,4 @@
-import { buildCreateSlice, createAsyncThunk,createSlice } from "@reduxjs/toolkit";
+import {  createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const foodMenu=createAsyncThunk("menu",async ()=>{

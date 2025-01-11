@@ -1,5 +1,5 @@
 
-export default function NextArrow({onClick,currentSlide,slideCount}){
+export default function NextArrow({onClick,currentSlide}){
    
     return (
         <div className="absolute top-[-50px] right-0 ">

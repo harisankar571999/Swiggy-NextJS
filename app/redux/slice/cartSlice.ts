@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import reducer from "./foodSlice";
+
 
 export const cartSlice=createSlice({
     name:"itemCount",
     initialState:{},
     reducers:{
-        addItem:(state:any,action)=>{
+        addItem:(state,action)=>{
             const id=action.payload.id
             if (!state[id]) {
                 state[id] = {...action.payload,count:1}
               }
         },
-        IncrementItem:(state:any,action)=>{
+        IncrementItem:(state,action)=>{
             const id=action.payload.id
             if(state[id]){
                 state[id].count +=1
             }
         },
-        DecrementItem:(state:any,action)=>{
+        DecrementItem:(state,action)=>{
             const id=action.payload.id
             if (state[id]) {
                 if (state[id].count > 1) {

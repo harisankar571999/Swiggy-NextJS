@@ -1,23 +1,20 @@
 'use client'
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchHotel } from "../redux/slice/restuarantSlice";
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NextArrow from "./NextArrow"
 import PrevArrow from "./PrevArrow"
-import Flickity from 'flickity'
-import 'flickity/css/flickity.css'
-import { current } from "@reduxjs/toolkit";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 export default function RestaurantCarousel(){
      const dispatch = useDispatch();
      const {data,loading,error} = useSelector((state) => state.hotel);
      const [progress,setProgress]=useState(0)
-     const [slidesToShow,setSlidesToShow]=useState(4)
      
      useEffect(()=>{
         dispatch(fetchHotel()); 
@@ -123,7 +120,7 @@ export default function RestaurantCarousel(){
                                     <li  className="w-[100%] list-hover">
                                         <Link href={`restaurant/${item.title.toLowerCase().replace(/\s+/g,'-')}`} className="flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ">
                                             <div className="w-[100%] relative rounded-[16px] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.1)]">
-                                                    <img src={item.img} alt={item.alt} className="w-[100%] h-[182px] object-cover overflow-hidden  "/>
+                                                    <Image width={100} height={182} src={item.img} alt={item.alt} className="w-[100%] h-[182px] object-cover overflow-hidden  "/>
                                                 <div className="gradient absolute bottom-0 left-0 right-0 flex items-end text-left px-[12px] pb-[4px] "> 
                                                     <div className="font-[proximacond] text-[24px] text-[rgba(255,255,255,0.92)]">{item.overlay}</div>
                                                 </div>
