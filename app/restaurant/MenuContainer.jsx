@@ -7,7 +7,8 @@ import Recommended from "./MenuRecommended"
  import Roti from "./Roti"
  import {useSelector,useDispatch } from "react-redux"
  import { vegToggle,NonVegToggle} from "../redux/slice/toggleSlice"
-import { useState } from "react"
+import Image from "next/image"
+
 
 
  export default function MenuContainer(){
@@ -31,24 +32,6 @@ import { useState } from "react"
             dispatch(vegToggle())
         }
     }
-
-    // const [toggle,setToggle]=useState(false)
-
-    // const [nonVeg,setnonVeg]=useState(false)
-
-    // const Toggled=()=>{
-    //     setToggle(!toggle)
-    //     if(nonVeg){
-    //       return  setnonVeg(!nonVeg)
-    //     }
-    // }
-
-    // const nonVegd=()=>{
-    //     setnonVeg(!nonVeg)
-    //     if(toggle){
-    //        return setToggle(!toggle)
-    //     }
-    // }
    
     return(
         <>
@@ -68,7 +51,7 @@ import { useState } from "react"
                         <span className="font-[helvica-semi] text-[14px] text-white flex items-center gap-[5px] ">
                             <span>View Cart</span>
                             <span>
-                                <img src="/assets/Checkout_Cart.avif" alt="Checkout_Cart.avif" className="h-[14px] w-[14px]"/>
+                                <Image width={14} height={14} src="/assets/Checkout_Cart.avif" alt="Checkout_Cart.avif" className="h-[14px] w-[14px]"/>
                             </span>
                         </span>
                     </div>

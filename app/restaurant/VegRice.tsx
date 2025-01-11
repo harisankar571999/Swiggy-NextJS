@@ -3,6 +3,7 @@ import { useEffect,useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { foodMenu } from "../redux/slice/menuSlice"
 import { addItem,IncrementItem,DecrementItem } from "../redux/slice/cartSlice"
+import Image from "next/image"
 
 
 export default function VegRice(){
@@ -167,7 +168,7 @@ const Hide=()=>{
                                                </div>
                                                <div className={`flex flex-col items-center  ${item.img ? '' : 'justify-center ' }`}>
                                                    <div className={`w-[156px] h-[144px] rounded-[12px] ${item.img ? '' : 'hidden'} overflow-hidden`}>
-                                                       <img src={item.img} alt="image.avif" className="object-cover rounded-[12px] block overflow-hidden w-[156px] h-[144px] " />
+                                                       <Image src={item.img} width={156} height={144} alt="image.avif" className="object-cover rounded-[12px] block overflow-hidden w-[156px] h-[144px] " />
                                                    </div>
                                                    <div className={` bottom-[20px]  flex flex-col  items-center cursor-pointer ${item.img ? 'relative' : 'justify-center bottom-0 pr-[20px]' }`}>
                                                        <div className="relative">

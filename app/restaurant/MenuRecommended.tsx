@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { foodMenu } from "../redux/slice/menuSlice"
 import { addItem,IncrementItem,DecrementItem } from "../redux/slice/cartSlice"
-import { toggleSlice } from "../redux/slice/toggleSlice"
 import Skeleton from "react-loading-skeleton"
 import Image from "next/image"
 
@@ -12,7 +11,7 @@ export default function Recommended(){
     const dispatch=useDispatch()
     const {data,loading,error}=useSelector((state)=>state.menu)
     useEffect(()=>{
-        dispatch(foodMenu(data))
+        dispatch(foodMenu())
     },[dispatch])
     const [hide,setHide]=useState(false)
     const cart = useSelector((state) => state.cart)
@@ -22,12 +21,13 @@ export default function Recommended(){
     const [foodClick,setFood]=useState(null)
     const [full,setFull]=useState(false)
     const [view,setView]=useState(false)
+    console.log(cart,veg)
 
 const View=()=>{
     setView(!view)
 }    
 
-const Full=(item)=>{
+const Full=()=>{
   setFull(!full)
   }
 

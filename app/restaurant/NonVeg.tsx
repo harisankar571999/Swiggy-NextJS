@@ -14,7 +14,7 @@ export default function NonVeg(){
         const [hide,setHide]=useState(false)
         const cart =useSelector((state)=>state.cart)
         const {veg,nonVeg}=useSelector((state)=>state.toggle)
-
+        console.log(cart,nonVeg)
         const [foodClick,setFood]=useState(null)
         const [full,setFull]=useState(false)
         const [view,setView]=useState(false)
@@ -23,7 +23,7 @@ export default function NonVeg(){
         setView(!view)
     }    
     
-    const Full=(item)=>{
+    const Full=()=>{
       setFull(!full)
       }
     
@@ -164,7 +164,7 @@ export default function NonVeg(){
                                             </div>
                                             <div className={`flex flex-col items-center  ${item.img ? '' : 'justify-center ' }`}>
                                                 <div className={`w-[156px] h-[144px] rounded-[12px] ${item.img ? '' : 'hidden'} overflow-hidden`}>
-                                                    <Image width={156} height={144} alt="image.jpg" src={item.img} alt="image.avif" className="object-cover rounded-[12px] block overflow-hidden w-[156px] h-[144px] " />
+                                                    <Image width={156} height={144} src={item.img} alt="image.avif" className="object-cover rounded-[12px] block overflow-hidden w-[156px] h-[144px] " />
                                                 </div>
                                                 <div className={` bottom-[20px]  flex flex-col  items-center cursor-pointer ${item.img ? 'relative' : 'justify-center bottom-0 pr-[20px]' }`}>
                                                     <div className="relative">
