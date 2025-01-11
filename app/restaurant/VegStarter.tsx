@@ -8,16 +8,18 @@ import { addItem,IncrementItem,DecrementItem } from "../redux/slice/cartSlice"
 export default function VegStarter(){
    
     const dispatch=useDispatch()
-    const {data,loading,error}=useSelector((state:any)=>state.menu)
+    const {data,loading,error}=useSelector((state)=>state.menu)
     useEffect(()=>{
         dispatch(foodMenu())
     },[dispatch])
 
     const [hide,setHide]=useState(false)
-    const cart = useSelector((state: any) => state.cart)
+    const cart = useSelector((state) => state.cart)
     const [items,setItems]=useState({})
-    const {veg,nonVeg}=useSelector((state:any)=>state.toggle)
-    
+    const {veg,nonVeg}=useSelector((state)=>state.toggle)
+    console.log(cart)
+    console.log(veg)
+    console.log(loading)
     
     const [foodClick,setFood]=useState(null)
     const [full,setFull]=useState(false)
@@ -35,7 +37,7 @@ const Full=(item)=>{
 const Hide=()=>{
     setHide(!hide)
 }
-    const Add= (item: any) => {
+    const Add= (item) => {
       
         
         if (item.customise){
@@ -58,7 +60,7 @@ const Hide=()=>{
       
     }
       
-        const Increment = (item: any) => {
+        const Increment = (item) => {
           
           setItems((prev:any)=>({
             ...prev,[item.id]:{count:(prev[item.id]?.count) +1}
@@ -66,7 +68,7 @@ const Hide=()=>{
           dispatch(IncrementItem(item)) 
         }
       
-        const Decrement = (item: any) => {
+        const Decrement = (item) => {
             setItems((prev: any) => {
                 const updatedItems = { ...prev };
                 
@@ -95,7 +97,7 @@ const Hide=()=>{
             <div>
                 <div className={`max-w-[800px] m-[20px_auto_0px] px-[20px] ${nonVeg ? 'hidden' : 'block' }`}>
                     <div className="border-t-[16px] border-t-[rgba(2,6,12,.0509803922)]">{
-                        data?.map((state:any)=>state?.vegStarter?.map((item:any,index:any)=>(   
+                        data?.map((state)=>state?.vegStarter?.map((item)=>(   
                         
                         <div className={`m-[24px_16px_0_16px]  last:border-b-0 border-b-[#d3d3d3] ${hide ? 'border-b-0' : 'border-b-[.5px]'}`} key={item.id}>
                             <div className={`mb-[24px] pr-[16px] flex items-center justify-between ${item.category ? 'block' : 'hidden'}`}>

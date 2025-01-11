@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchHotel } from "../redux/slice/restuarantSlice";
 import { fetchFoodData } from "../redux/slice/foodSlice";
 import { useParams } from "next/navigation";
@@ -9,9 +9,8 @@ import Skeleton from "react-loading-skeleton";
 
 export default function RestaurantCard(){
      const dispatch = useDispatch();
-     const {data,loading,error} = useSelector((state) => state.hotel);
-     const {data:foodData,loading:foodLoading,error:foodError} = useSelector((state)=>state.food)
-     const [random, setRandom] = useState([]);
+     const {data,loading,error} = useSelector((state:any) => state.hotel);
+     const {data:foodData,loading:foodLoading,error:foodError} = useSelector((state:any)=>state.food)
      const {id}=useParams()
      useEffect(()=>{
         if (!data.length){
@@ -20,10 +19,11 @@ export default function RestaurantCard(){
         if(!foodData.length){
             dispatch(fetchFoodData());
         }
-         
-     },[dispatch])
+        console.log(foodLoading)
+        console.log(foodError)
+     },[dispatch,data,foodData])
       
-     const selectedCategory=foodData?.find((item:any)=>item.category.toLowerCase().replace(/\s+/g,'-')===id)
+     const selectedCategory=foodData?.find((item:string)=>item?.category.toLowerCase().replace(/\s+/g,'-')===id)
      if(!selectedCategory){
         return <>
                    <Skeleton count={10}/>
@@ -31,7 +31,7 @@ export default function RestaurantCard(){
      }
      const restaurantList=selectedCategory.restaurantId
      console.log(restaurantList)
-     const restaurantData=data.filter((hotel:any)=>restaurantList.includes(hotel.id))
+     const restaurantData=data.filter((hotel:number)=>restaurantList.includes(hotel.id))
 
      if(loading)  return <>
                    <Skeleton count={10}/>
@@ -43,7 +43,7 @@ export default function RestaurantCard(){
         <> { loading ? <Skeleton/> :(
             <div className="relative max-w-[1260px] mx-auto">
                 <ul className="grid grid-cols-4 p-[32px_20px] gap-[32px] max-[1300px]:flex max-[1300px]:flex-wrap max-[1300px]:justify-evenly"> 
-                    { restaurantData.map((item:any) => {
+                    { restaurantData.map((item:any ) => {
                             return (
                     
                             <li  className="w-[100%] list-hover max-[1300px]:w-[278px]"  key={item.id}>
