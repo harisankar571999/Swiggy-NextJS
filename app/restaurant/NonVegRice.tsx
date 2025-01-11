@@ -3,6 +3,7 @@ import { useEffect,useState} from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { foodMenu } from "../redux/slice/menuSlice"
 import { addItem,IncrementItem,DecrementItem } from "../redux/slice/cartSlice"
+import Image from "next/image"
 
 
 
@@ -10,14 +11,16 @@ export default function NonVegRice(){
    
     const [items,setItems]=useState({})
         const dispatch=useDispatch()
-        const {data,loading,error}=useSelector((state:any)=>state.menu)
+        const {data,loading,error}=useSelector((state)=>state.menu)
         const [hide,setHide]=useState(false)
-        const cart =useSelector((state:any)=>state.cart)
-        const {veg,nonVeg}=useSelector((state:any)=>state.toggle)
+        const cart =useSelector((state)=>state.cart)
+        const {veg,nonVeg}=useSelector((state)=>state.toggle)
 
         const [foodClick,setFood]=useState(null)
         const [full,setFull]=useState(false)
         const [view,setView]=useState(false)
+
+        console.log(cart,loading,nonVeg)
     
         useEffect(()=>{
             dispatch(foodMenu())
@@ -27,18 +30,18 @@ export default function NonVegRice(){
         setView(!view)
     }    
     
-    const Full=(item)=>{
+    const Full=()=>{
       setFull(!full)
       }
     
 
-        const Add = (item: any) => {
+        const Add = (item) => {
           
             
             if (item.customise){
                  setFood(item)
                 if(foodClick){
-                    setItems((prev:any)=>({
+                    setItems((prev)=>({
                         ...prev,[item.id]:{count:1}
                   }))
                   dispatch(addItem(item))
@@ -47,7 +50,7 @@ export default function NonVegRice(){
             }
             else{
                 setFood(null)
-                setItems((prev:any)=>({
+                setItems((prev)=>({
                 ...prev,[item.id]:{count:1}
                 }))
                 dispatch(addItem(item))
@@ -60,17 +63,17 @@ export default function NonVegRice(){
         }
     
         
-        const Increment=(item:any)=>{
+        const Increment=(item)=>{
             dispatch(IncrementItem(item))
-            setItems((prev:any)=>(
+            setItems((prev)=>(
                 {
                     ...prev,[item.id]:{count:(prev[item.id]?.count) +1}
                 }
             )) 
         }
     
-        const Decrement = (item: any) => {
-                setItems((prev: any) => {
+        const Decrement = (item) => {
+                setItems((prev) => {
                     const updatedItems = { ...prev };
                     
                     if (updatedItems[item.id]) {
@@ -98,7 +101,7 @@ export default function NonVegRice(){
                 <div>
                     <div className={`max-w-[800px] m-[20px_auto_0px] px-[20px] ${veg ? 'hidden' : 'block' }`}>
                         <div className="border-t-[16px] border-t-[rgba(2,6,12,.0509803922)]">{
-                            data?.map((state:any)=>state?.nonVegRice?.map((item:any,index:any)=>(   
+                            data?.map((state)=>state?.nonVegRice?.map((item)=>(   
                             
                             <div className={`m-[24px_16px_0_16px]  last:border-b-0 border-b-[#d3d3d3] ${hide ? 'border-b-0' : 'border-b-[.5px]'}`} key={item.id}>
                                 <div className={`mb-[24px] pr-[16px] flex items-center justify-between ${item.category ? 'block' : 'hidden'}`}>
@@ -165,7 +168,7 @@ export default function NonVegRice(){
                                             </div>
                                             <div className={`flex flex-col items-center  ${item.img ? '' : 'justify-center ' }`}>
                                                 <div className={`w-[156px] h-[144px] rounded-[12px] ${item.img ? '' : 'hidden'} overflow-hidden`}>
-                                                    <img src={item.img} alt="image.avif" className="object-cover rounded-[12px] block overflow-hidden w-[156px] h-[144px] " />
+                                                    <Image width={156}  height={144} src={item.img} alt="image.avif" className="object-cover rounded-[12px] block overflow-hidden w-[156px] h-[144px] " />
                                                 </div>
                                                 <div className={` bottom-[20px]  flex flex-col  items-center cursor-pointer ${item.img ? 'relative' : 'justify-center bottom-0 pr-[20px]' }`}>
                                                     <div className="relative">

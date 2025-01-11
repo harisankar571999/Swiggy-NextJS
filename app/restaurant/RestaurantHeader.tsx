@@ -12,12 +12,12 @@ import 'react-loading-skeleton/dist/skeleton.css'
   export default function RestaurantHeader(){
     const {title} =useParams()
     const dispatch=useDispatch()
-    const {data,loading,error}=useSelector((state:any)=>state.hotel)
+    const {data,loading,error}=useSelector((state)=>state.hotel)
     useEffect(()=>{
         dispatch(fetchHotel())
     },[dispatch])
-   console.log(data)
-   const selectedRestaurant=data?.find((hotel:any)=>hotel?.title?.toLowerCase().replace(/\s+/g, '-')===title)
+   console.log(data,loading,error)
+   const selectedRestaurant=data?.find((hotel)=>hotel?.title?.toLowerCase().replace(/\s+/g, '-')===title)
 
    if(!selectedRestaurant){
     return <>

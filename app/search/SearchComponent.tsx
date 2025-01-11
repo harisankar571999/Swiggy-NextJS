@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import axios from 'axios'
 import Link from 'next/link'
+import Image from 'next/image'
 
 
 function SearchComponent() {
@@ -15,7 +16,7 @@ function SearchComponent() {
     useEffect(()=>{
          axios.get('/api/restaurantApi')
          .then((res)=>{
-            const hotelWithType= res.data.map((item:any)=>{
+            const hotelWithType= res.data.map((item)=>{
                 return{
                     ...item,type:'Restaurant'
             }
@@ -50,8 +51,8 @@ function SearchComponent() {
              
                 
             ].sort((a,b)=>{
-                const firstWord=(item:any)=> item.title?.toLowerCase().split(" ")[0].startsWith(term)
-                const secondWord = (item:any) => {
+                const firstWord=(item)=> item.title?.toLowerCase().split(" ")[0].startsWith(term)
+                const secondWord = (item) => {
                     const words = item.title?.toLowerCase().split(" ");
                     return words?.[1]?.startsWith(term);
                 }
@@ -71,13 +72,13 @@ function SearchComponent() {
 
 
 
-    const highlightText =(text:any,term:any)=>{
+    const highlightText =(text,term)=>{
         if (!text || typeof text !== 'string') {
             return text
         }
         
         const regex= new RegExp((`${term}`),"gi")
-        return text.replace(regex,(match:any)=> {
+        return text.replace(regex,(match)=> {
             return `<b>${match}</b>`
         })
     }
@@ -115,12 +116,12 @@ function SearchComponent() {
             </div>
         </div>
         <div className='w-[53%] mx-auto pt-[13px] flex flex-col max-[650px]:w-[80%]'>
-            { filteredResult?.map((item)=>(
-            <div key={item.index}>
+            { filteredResult?.map((item,index)=>(
+            <div key={index}>
                 <Link href={`/restaurant/${item?.title?.toLowerCase().replace(/\s+/g,'-')}`} >
                     <button className='w-[100%] p-[14px_16px] flex items-center gap-[15px]' >
                         <div className='w-[64px] h-[64px] rounded-[4px]'>
-                            <img src={item?.img || '/assets/food/coming soon.jpg'} className="w-[64px] h-[64px] rounded-[4px]" />
+                            <Image width={64} height={64} alt='image.jpg' src={item?.img || '/assets/food/coming soon.jpg'} className="w-[64px] h-[64px] rounded-[4px]" />
                         </div>
                         <div className='flex flex-col items-start'>
                             <div className='font-[helvica-reg] font-[400] text-[14.98px] text-[#282c3f] text-left'  dangerouslySetInnerHTML={{__html: highlightText(item.title || item.name, searchTerm),}}></div>

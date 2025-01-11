@@ -9,10 +9,10 @@ export default function VegRice(){
    
       const [items,setItems]=useState({})
            const dispatch=useDispatch()
-           const {data,loading,error}=useSelector((state:any)=>state.menu)
+           const {data,loading,error}=useSelector((state)=>state.menu)
            const [hide,setHide]=useState(false)
-           const cart =useSelector((state:any)=>state.cart)
-           const {veg,nonVeg}=useSelector((state:any)=>state.toggle)
+           const cart =useSelector((state)=>state.cart)
+           const {veg,nonVeg}=useSelector((state)=>state.toggle)
            useEffect(()=>{
                dispatch(foodMenu())
            },[dispatch])
@@ -21,11 +21,13 @@ const [foodClick,setFood]=useState(null)
 const [full,setFull]=useState(false)
 const [view,setView]=useState(false)
 
+console.log(loading,cart,veg,)
+
 const View=()=>{
     setView(!view)
 }    
 
-const Full=(item:any)=>{
+const Full=()=>{
   setFull(!full)
   }
 
@@ -33,13 +35,13 @@ const Full=(item:any)=>{
 const Hide=()=>{
     setHide(!hide)
 }
-    const Add = (item: any) => {
+    const Add = (item) => {
       
         
         if (item.customise){
              setFood(item)
             if(foodClick){
-                setItems((prev:any)=>({
+                setItems((prev)=>({
                     ...prev,[item.id]:{count:1}
               }))
               dispatch(addItem(item))
@@ -48,7 +50,7 @@ const Hide=()=>{
         }
         else{
             setFood(null)
-            setItems((prev:any)=>({
+            setItems((prev)=>({
             ...prev,[item.id]:{count:1}
             }))
             dispatch(addItem(item))
@@ -57,18 +59,18 @@ const Hide=()=>{
     }
        
            
-           const Increment=(item:any)=>{
+           const Increment=(item)=>{
                dispatch(IncrementItem(item))
-               setItems((prev:any)=>(
+               setItems((prev)=>(
                    {
                        ...prev,[item.id]:{count:(prev[item.id]?.count) +1}
                    }
                )) 
            }
        
-           const Decrement = (item: any) => {
+           const Decrement = (item) => {
            
-                   setItems((prev: any) => {
+                   setItems((prev) => {
                    
                        const updatedItems = { ...prev };
                        
@@ -99,7 +101,7 @@ const Hide=()=>{
                    <div>
                        <div className={`max-w-[800px] m-[20px_auto_0px] px-[20px] ${nonVeg ? 'hidden' : 'block' }`}>
                            <div className="border-t-[16px] border-t-[rgba(2,6,12,.0509803922)]">{
-                               data?.map((state:any)=>state?.vegRice?.map((item:any,index:any)=>(   
+                               data?.map((state)=>state?.vegRice?.map((item)=>(   
                                
                                <div className={`m-[24px_16px_0_16px]  last:border-b-0 border-b-[#d3d3d3] ${hide ? 'border-b-0' : 'border-b-[.5px]'}`} key={item.id}>
                                    <div className={`mb-[24px] pr-[16px] flex items-center justify-between ${item.category ? 'block' : 'hidden'}`}>
