@@ -11,7 +11,7 @@ import NavbarSwitch from "./components/NavbarSwitch";
 export default function Home() {
   return (
    
-   <div>
+    <div>
       <NavbarSwitch/>
       <FoodSlide/>
       <CardSlide/>
@@ -19,7 +19,6 @@ export default function Home() {
       <BestPlaces/>
       <BestCuisines/>
       <Footer/>
-      
-   </div>
+    </div>
   );
 }

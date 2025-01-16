@@ -123,7 +123,7 @@ function SearchFood() {
             { filteredResult?.map((item)=>(
             <button className='w-[100%] p-[14px_16px] flex items-center gap-[15px]' key={item.id}>
                 <div className='w-[64px] h-[64px] block rounded-[4px]'>
-                    <Image alt= "image.jpg" src={item?.img || '/assets/food/coming soon.jpg'} className="w-[64px] block   h-[64px] rounded-[4px]" />
+                    <Image width={64} height={64} alt= "image.jpg" src={item?.img || '/assets/food/coming soon.jpg'} className="w-[64px] block   h-[64px] rounded-[4px]" />
                 </div>
                 <div className='flex flex-col items-start'>
                    <div className='font-[helvica-reg] font-[400] text-[14.98px] text-[#282c3f] text-left'  dangerouslySetInnerHTML={{__html: highlightText(item.title || item.name, searchTerm),}}></div>
