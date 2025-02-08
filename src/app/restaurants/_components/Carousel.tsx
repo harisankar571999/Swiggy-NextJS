@@ -81,7 +81,8 @@ return (
             <div className="flex gap-[24px]" key={item.id}> 
               <Link href={`/collections/${item.category.toLowerCase().replace(/\s+/g,'-')}`} >
                 <span className="h-[180px] w-[144px] block">
-                  <img src={item.img} alt={item.alt} className="h-[180px] w-[100%] object-cover" />
+                { loading ? <Skeleton height={180} width={144}/> : (
+                  <img src={item.img} alt={item.alt} className="h-[180px] w-[100%] object-cover" />)}
                 </span>
               </Link>
             </div>

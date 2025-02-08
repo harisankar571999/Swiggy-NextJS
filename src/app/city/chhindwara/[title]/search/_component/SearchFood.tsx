@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
+import Skeleton from 'react-loading-skeleton'
 
 
 function SearchFood() {
@@ -99,7 +100,7 @@ function SearchFood() {
                     <form action="post" >
                         <div className=''>
                             <div className='flex items-center relative'>
-                                <input type="search" placeholder={`Search for food in ${restaurant?.title} `} value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} className='bg-[#fff] h-[48px]  max-[600px]:text-[12px] border-[rgba(40,44,63,.3)] cursor-pointer border-solid border-[1px] w-[53%] rounded-[3px] m-[0_auto_8px] outline-none font-[helvica-reg] font-[600] text-[#686b78] px-[13px] placeholder:text-[#686b78] placeholder:font-[600]  placeholder:font-[helvica-reg] leading-[19px] '/>
+                                <input type="search" placeholder={`Search for food in ${restaurant?.title}`} value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} className='bg-[#fff] h-[48px]  max-[600px]:text-[12px] border-[rgba(40,44,63,.3)] cursor-pointer border-solid border-[1px] w-[53%] rounded-[3px] m-[0_auto_8px] outline-none font-[helvica-reg] font-[600] text-[#686b78] px-[13px] placeholder:text-[#686b78] placeholder:font-[600]  placeholder:font-[helvica-reg] leading-[19px] '/>
                                 <div className='absolute top-[15px] right-[24.5%]'>
                                     <span className={`${searchTerm ? 'hidden' : 'block'}`}> 
                                         <svg viewBox="5 -1 12 25" height="18" width="18" fill="#686b78">

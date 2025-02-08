@@ -118,10 +118,10 @@ export default function RestaurantCard(){
             </div>
             <div className="relative">
                 
-                <ul className="grid grid-cols-4 p-[32px_16px] gap-[32px] max-[1250px]:flex max-[1250px]:flex-wrap max-[1250px]:justify-center max-[1250px]:items-center" > 
+                <ul className="grid grid-cols-4 p-[32px_16px] gap-[32px] max-[1220px]:flex max-[1220px]:flex-wrap max-[1220px]:justify-center max-[1220px]:items-center" > 
                     { random.map((item) => {
                             return (
-                                <li  className="w-[100%] list-hover " key={item.id}>
+                                <li  className="w-[100%] max-[1220px]:w-[280px] list-hover " key={item.id}>
                                     <Link href={`city/chhindwara/${item.title.toLowerCase().replace(/\s+/g,'-')}`} className="flex flex-col gap-[12px]  whitespace-nowrap overflow-clip text-ellipsis ">
                                         <div className="w-[100%] relative rounded-[16px] overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.1)]">{loading? <Skeleton height={182} width={300} />:( 
                                         <div>
@@ -133,6 +133,7 @@ export default function RestaurantCard(){
                                         </div>
                                         <div className="pl-[16px] overflow-hidden w-[260px]">
                                             <h1 className="font-[gilroy-xbold] font-[700] text-[18px] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{loading? <Skeleton height={"1.5em"} width={"10em"}/>: `${item.title}`}</h1>
+                                            {loading? <Skeleton height={"1.5em"} width={"10em"}/>: (
                                             <div className="flex items-center gap-[3px]">
                                                 <span>
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-hidden="true" stroke-color="rgba(2, 6, 12, 0.92)" fill-color="rgba(2, 6, 12, 0.92)">
@@ -150,12 +151,12 @@ export default function RestaurantCard(){
                                                         </defs>
                                                     </svg>
                                                 </span>
-                                                <span className="font-[gilroy-reg] text-[16px] font-[400] text-[rgba(2,6,12,0.92)]">{loading? <Skeleton height={"1.5em"} width={"6em"}/>: `${item.rating}`}  • </span>
-                                                <span className="font-[gilroy-reg]  font-[600] text-[16px]">{loading? <Skeleton height={"1.5em"} width={"4em"}/>: `${item.timing}`} mins</span>
-                                            </div>
+                                                <span className="font-[gilroy-reg] text-[16px] font-[400] text-[rgba(2,6,12,0.92)]">{item.rating}  • </span>
+                                                <span className="font-[gilroy-reg]  font-[600] text-[16px]">{item.timing}</span>
+                                            </div>)}
                                             <div className="flex flex-col gap-[1px]">   
-                                                <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{loading? <Skeleton height={"1.5em"} width={"8em"}/>: `${item.food}`}</span>
-                                                <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{loading? <Skeleton height={"1.5em"} width={"8em"}/>: `${item.locality}`}</span>
+                                                <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{loading? <Skeleton height={"1.5em"} width={"10em"}/>: `${item.food}`}</span>
+                                                <span className="font-[gilroy-med] font-[600] text-[rgba(2,6,12,0.6)] whitespace-nowrap overflow-clip text-ellipsis w-[190px]">{loading? <Skeleton height={"1.5em"} width={"10em"}/>: `${item.locality}`}</span>
                                             </div>
                                         </div>
                                     </Link >   
