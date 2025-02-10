@@ -28,9 +28,9 @@ if (error) {
     return <p>Error loading data: {error.message}</p>;
 }
  if(!myData){
-    return <>
+    return <div className="p-[60px_0_8px_0] max-w-[1260px] mx-auto">
         <Skeleton height={200}/>
-    </>
+    </div>
    }
 
 

@@ -143,35 +143,39 @@ const Hide=()=>{
                                                     </svg>
                                                 </span>
                                             </div>
-                                            <h1 className="font-[gilroy-bold] text-[18px] text-[rgba(2,6,12,0.75)]">{item.name}</h1>
-                                            <h2 className="font-[gilroy-reg] text-[16px] font-[600]">₹ {item.price.toFixed(2)}</h2>
-                                            <div className="mt-[12px] flex items-center gap-[2px]">
-                                                <span>
-                                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" role="img" >
-                                                        <rect width="14" height="14" fill="white"></rect>
-                                                        <path 
-                                                            d="M5.67163 3.99166C6.22068 2.34179 6.49521 1.51686 7 
-                                                            1.51686C7.50479 1.51686 7.77932 2.34179 8.32837 3.99166L8.65248 4.96556H9.60668C11.4122 4.96556 12.315 4.96556 
-                                                            12.4703 5.45302C12.6256 5.94049 11.8893 6.4628 10.4167 7.50744L9.67376 8.03444L9.97544 8.94095C10.5325 10.615 10.8111 
-                                                            11.452 10.4033 11.754C9.99553 12.056 9.27604 11.5457 7.83705 10.5249L7 9.93112L6.16295 10.5249C4.72396 11.5457 4.00447 
-                                                            12.056 3.5967 11.754C3.18893 11.452 3.46747 10.615 4.02456 8.94095L4.04557 8.87783C4.18081 8.47145 4.24843 8.26825 
-                                                            4.18684 8.08006C4.12525 7.89187 3.94958 7.76725 3.59824 7.51802C2.11566 6.46633 1.37437 5.94049 1.52971 5.45302C1.68504 
-                                                            4.96556 2.5878 4.96556 4.39332 4.96556H5.34752L5.67163 3.99166Z" fill={`${item.rating >=4 ? '#116649': item.rating >=3 ? '#1BA672': item.rating >=2 ? '#E6A408' : '#116649'}`}>
-                                                        </path>
-                                                    </svg>
-                                                </span>
-                                                <span className={`font-[gilroy-bold] text-[13px] ${item.rating >=4 ? 'text-[#116649]': item.rating >=3 ? 'text-[#1BA672]': item.rating >=2 ? 'text-[#E6A408]' : '#116649'}`}>
-                                                    {item.rating.toFixed(1)}
-                                                </span>
-                                                <span className="font-[gilroy-bold] text-[13px] text-[rgb(17,102,0.6)]">
-                                                    ({item.review})
-                                                </span>
+                                            <h1 className="font-[gilroy-bold] text-[18px] text-[rgba(2,6,12,0.75)]">{loading ? <Skeleton height={"1.5em"} width={"3em"} />: `${item.name}`}</h1>
+                                            <h2 className="font-[gilroy-reg] text-[16px] font-[600]"> {loading ? <Skeleton height={"1.5em"} width={"3em"} />: `₹ ${item.price.toFixed(2)}`}</h2>
+                                            <div>{loading ? <Skeleton height={"1.5em"} width={"3em"} />:(
+                                                <div className="mt-[12px] flex items-center gap-[2px]">
+                                                    <span>
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" role="img" >
+                                                            <rect width="14" height="14" fill="white"></rect>
+                                                            <path 
+                                                                d="M5.67163 3.99166C6.22068 2.34179 6.49521 1.51686 7 
+                                                                1.51686C7.50479 1.51686 7.77932 2.34179 8.32837 3.99166L8.65248 4.96556H9.60668C11.4122 4.96556 12.315 4.96556 
+                                                                12.4703 5.45302C12.6256 5.94049 11.8893 6.4628 10.4167 7.50744L9.67376 8.03444L9.97544 8.94095C10.5325 10.615 10.8111 
+                                                                11.452 10.4033 11.754C9.99553 12.056 9.27604 11.5457 7.83705 10.5249L7 9.93112L6.16295 10.5249C4.72396 11.5457 4.00447 
+                                                                12.056 3.5967 11.754C3.18893 11.452 3.46747 10.615 4.02456 8.94095L4.04557 8.87783C4.18081 8.47145 4.24843 8.26825 
+                                                                4.18684 8.08006C4.12525 7.89187 3.94958 7.76725 3.59824 7.51802C2.11566 6.46633 1.37437 5.94049 1.52971 5.45302C1.68504 
+                                                                4.96556 2.5878 4.96556 4.39332 4.96556H5.34752L5.67163 3.99166Z" fill={`${item.rating >=4 ? '#116649': item.rating >=3 ? '#1BA672': item.rating >=2 ? '#E6A408' : '#116649'}`}>
+                                                            </path>
+                                                        </svg>
+                                                    </span>
+                                                    <div>
+                                                        <span className={`font-[gilroy-bold] text-[13px] ${item.rating >=4 ? 'text-[#116649]': item.rating >=3 ? 'text-[#1BA672]': item.rating >=2 ? 'text-[#E6A408]' : '#116649'}`}>
+                                                            {item.rating.toFixed(1)}
+                                                        </span>
+                                                        <span className="font-[gilroy-bold] text-[13px] text-[rgb(17,102,0.6)]">
+                                                            ({item.review})
+                                                        </span>
+                                                    </div>
+                                                </div>)}
                                             </div>
                                         </div>
                                         <div className={`flex flex-col items-center  ${item.img ? '' : 'justify-center ' }`}>
-                                            <div className={`w-[156px] h-[144px] rounded-[12px] ${item.img ? '' : 'hidden'} overflow-hidden`}>
+                                        {loading ? <Skeleton height={156} width={144} />:( <div className={`w-[156px] h-[144px] rounded-[12px] ${item.img ? '' : 'hidden'} overflow-hidden`}>
                                                 <img width={156}  height={144} src={item.img} alt="image.avif" className="object-cover rounded-[12px] block overflow-hidden w-[156px] h-[144px] " />
-                                            </div>
+                                            </div>)}
                                             <div className={` bottom-[20px]  flex flex-col  items-center cursor-pointer ${item.img ? 'relative' : 'justify-center bottom-0 pr-[20px]' }`}>
                                                 <div className="relative">
                                                     <div className="bg-[white] border-[rgba(2,6,12,0.15)] border-[1px] w-[120px] h-[40px] rounded-[8px] flex items-center justify-center shadow-[0px_3px_8px_rgba(40,44,63,0.08)] relative overflow-hidden">

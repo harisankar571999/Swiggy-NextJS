@@ -22,7 +22,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
    if(!selectedRestaurant){
     return <>
                 <div className="max-w-[800px] m-[20px_auto_0px] px-[20px]">
-                    <Skeleton count={10}/>
+                   <Skeleton height={500}/>
                 </div> 
             </>
    }

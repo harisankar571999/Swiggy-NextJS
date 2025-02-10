@@ -63,6 +63,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
                                             </linearGradient></defs>
                                     </svg>
                                 </div>
+                                
                                 <span>
                                     <h1>{selectedRestaurant?.rating.toFixed(1)}</h1>
                                 </span>
@@ -71,7 +72,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
                                 </span>
                             </div>
                             <span className="mx-[8px] text-[rgba(2,6,12,0.45)]">•</span>
-                            <span>
+                            <span className="">
                                 <h1>₹250 for two</h1>
                             </span>
                         </div>

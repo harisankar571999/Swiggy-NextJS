@@ -30,9 +30,9 @@ export default function RestaurantCard(){
       
      const selectedCategory=foodData?.find((item:string)=>item?.category.toLowerCase().replace(/\s+/g,'-')===id)
      if(!selectedCategory){
-        return <>
-                   <Skeleton count={10}/>
-                 </>
+        return <div className="relative max-w-[1260px] mx-auto">
+                   <Skeleton height={300}/>
+                </div>
      }
      const restaurantList=selectedCategory.restaurantId
      console.log(restaurantList)
